@@ -33,6 +33,7 @@ public class ExternalApiService {
                 output = response.toString();
             }
         } else {
+            //test
             throw new IOException("Failed to fetch data from external API: HTTP error code " + responseCode);
         }
         return output;
