@@ -73,66 +73,7 @@ function MenuAppBar() {
           >
             Bestes Autobaustellenauskunft
           </Typography>
-
-          <IconButton
-            aria-controls={open ? "basic-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            onClick={handleClick}
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
-            }}
-          >
-            <Link href="/" underline="hover">
-              <MenuItem color="black">
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                Home
-              </MenuItem>
-            </Link>
-            {openLogin && (
-              <Link href="/login" underline="hover">
-                <MenuItem color="black">
-                  <ListItemIcon>
-                    <LoginIcon fontSize="medium" />
-                  </ListItemIcon>
-                  Login
-                </MenuItem>
-              </Link>
-            )}
-            {logout && (
-              <Link href="/" underline="hover">
-                <MenuItem color="black" onClick={handleLogout}>
-                  <ListItemIcon>
-                    <LogoutIcon fontSize="medium" />
-                  </ListItemIcon>
-                  Logout
-                </MenuItem>
-              </Link>
-            )}
-            <Link href="/Dashboard" underline="hover">
-              <MenuItem color="black">
-                <ListItemIcon>
-                  <DashboardIcon fontSize="medium" />
-                </ListItemIcon>
-                Dashboard
-              </MenuItem>
-            </Link>
-          </Menu>
+            
         </Toolbar>
       </AppBar>
     </Box>

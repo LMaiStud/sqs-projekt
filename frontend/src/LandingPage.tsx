@@ -22,7 +22,7 @@ function LandingPage() {
     type Roadwork = {
         identifier: string;
         icon: string;
-        isBlocked: string; // Hier könnte es sinnvoll sein, den Typ auf boolean zu ändern, wenn der Wert entweder "true" oder "false" ist.
+        isBlocked: string;
         future: boolean;
         extent: string;
         point: string;
@@ -41,9 +41,9 @@ function LandingPage() {
             long: number;
         };
         description: string[];
-        routeRecommendation: any[]; // Hier können Sie den tatsächlichen Typ spezifizieren, wenn er bekannt ist.
-        footer: any[]; // Hier können Sie den tatsächlichen Typ spezifizieren, wenn er bekannt ist.
-        lorryParkingFeatureIcons: any[]; // Hier können Sie den tatsächlichen Typ spezifizieren, wenn er bekannt ist.
+        routeRecommendation: any[];
+        footer: any[];
+        lorryParkingFeatureIcons: any[];
         geometry: {
             type: string;
             coordinates: number[][];
@@ -51,7 +51,7 @@ function LandingPage() {
     }
 
     useEffect(() => {
-        fetchRoadworks();
+        //fetchRoadworks();
     }, []);
 
     const fetchRoadworks = () => {
@@ -72,7 +72,24 @@ function LandingPage() {
     };
 
     function doSearch() {
-        console.log(roadworksData);
+        if (search.trim() === "") {
+            // Wenn die Sucheingabe leer ist, brechen Sie die Funktion ab
+            return;
+        }
+
+        const searchParam = search.trim().toUpperCase(); // Konvertieren Sie den Suchbegriff in Großbuchstaben
+
+        // Führen Sie den Fetch-Vorgang mit dem Suchbegriff als Query-Parameter durch
+        fetch(`http://localhost:8080/roadworks?roadId=${searchParam}`)
+            .then((response) => response.json())
+            .then((json) => {
+                setRoadworksData(json.roadworks);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error fetching roadworks:", error);
+                setLoading(false);
+            });
     }
 
     const handleEnter = (event: any) => {
@@ -103,21 +120,8 @@ function LandingPage() {
                     <CardContent>
                         <Grid container spacing={1} alignItems="center">
                             <Grid xs={12} sm={2} item>
-                                <Link
-                                    component="button"
-                                    variant="body2"
-                                    onClick={() => {
-                                        navigate("/");
-                                    }}
-                                >
-                                    <img
-                                        style={{ width: 120, height: 110 }}
-                                        alt="Logo"
-                                    />
-
-                                </Link>
                             </Grid>
-                            <Grid xs={12} sm={10} item>
+                            <Grid xs={12} sm={12} item>
                                 <TextField
                                     fullWidth
                                     label="Suche"
