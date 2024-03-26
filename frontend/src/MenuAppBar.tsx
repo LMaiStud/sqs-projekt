@@ -73,7 +73,7 @@ function MenuAppBar() {
           >
             Bestes Autobaustellenauskunft
           </Typography>
-            
+
         </Toolbar>
       </AppBar>
     </Box>
