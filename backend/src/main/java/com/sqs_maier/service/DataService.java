@@ -33,12 +33,12 @@ public class DataService {
             String newData = externalApiService.fetchDataFromExternalAPI(roadId);
             data = createRoad(newData, roadId);
         }
-        return ResponseEntity.ok(data.getData());
+        return ResponseEntity.ok(data.getDataField());
     }
 
     private Data createRoad(String newData, Autobahn roadId){
         Data data = new Data();
-        data.setData(newData);
+        data.setDataField(newData);
         data.setHighwayCode(roadId.name());
         data.setMakeTime(Time.valueOf(LocalTime.now()));
         data.setMakeDate(Date.valueOf(LocalDate.now()));

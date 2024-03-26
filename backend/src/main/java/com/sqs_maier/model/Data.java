@@ -15,7 +15,7 @@ public class Data {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String data;
+    private String dataField;
 
     private Time makeTime;
 
@@ -48,12 +48,12 @@ public class Data {
         this.id = id;
     }
 
-    public String getData() {
-        return data;
+    public String getDataField() {
+        return dataField;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataField(String data) {
+        this.dataField = data;
     }
 
     public Date getMakeDate() {

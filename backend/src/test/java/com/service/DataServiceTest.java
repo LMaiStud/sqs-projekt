@@ -39,7 +39,7 @@ public class DataServiceTest {
         // Arrange
         Autobahn roadId = Autobahn.A1;
         Data existingData = new Data();
-        existingData.setData("Existing Data");
+        existingData.setDataField("Existing Data");
         existingData.setHighwayCode(roadId.name());
         existingData.setMakeTime(Time.valueOf(LocalTime.now()));
         existingData.setMakeDate(Date.valueOf(LocalDate.now()));
@@ -62,7 +62,7 @@ public class DataServiceTest {
         Autobahn roadId = Autobahn.A2;
         String newData = "New Data";
         Data createdData = new Data();
-        createdData.setData(newData);
+        createdData.setDataField(newData);
         createdData.setHighwayCode(roadId.name());
         createdData.setMakeTime(Time.valueOf(LocalTime.now()));
         createdData.setMakeDate(Date.valueOf(LocalDate.now()));
