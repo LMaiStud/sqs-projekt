@@ -23,7 +23,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class DataServiceTest {
+class DataServiceTest {
 
     @Mock
     private DataRepository dataRepository;
@@ -35,7 +35,7 @@ public class DataServiceTest {
     private DataService dataService;
 
     @Test
-    public void testGetData_ExistingData() throws IOException {
+    void testGetData_ExistingData() throws IOException {
         // Arrange
         Autobahn roadId = Autobahn.A1;
         Data existingData = new Data();
@@ -57,7 +57,7 @@ public class DataServiceTest {
     }
 
     @Test
-    public void testGetData_NonExistingData() throws IOException {
+    void testGetData_NonExistingData() throws IOException {
         // Arrange
         Autobahn roadId = Autobahn.A2;
         String newData = "New Data";
