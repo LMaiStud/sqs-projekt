@@ -1,4 +1,3 @@
-import DetailAuction from "./DetailAuction";
 type RoadworksData = {
     roadworks: Roadwork[];
 }
