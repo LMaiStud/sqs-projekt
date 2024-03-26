@@ -1,7 +1,3 @@
-type RoadworksData = {
-    roadworks: Roadwork[];
-}
-
 type Roadwork = {
     identifier: string;
     icon: string;

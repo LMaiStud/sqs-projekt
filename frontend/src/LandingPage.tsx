@@ -12,8 +12,6 @@ import MenuAppBar from "./MenuAppBar";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Roadwork from "./TypeDto/Roadwork";
-// @ts-ignore
-import logo from "../public/logo.png";
 
 function LandingPage() {
     let navigate = useNavigate();
@@ -84,7 +82,6 @@ function LandingPage() {
                                 >
                                     <img
                                         style={{ width: 120, height: 110 }}
-                                        src={logo}
                                         alt="Logo"
                                     />
 
