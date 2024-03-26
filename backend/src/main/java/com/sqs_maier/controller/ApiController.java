@@ -3,6 +3,7 @@ package com.sqs_maier.controller;
 import com.sqs_maier.service.DataService;
 import com.sqs_maier.util.Autobahn;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ public class ApiController {
         this.dataService = dataService;
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/roadworks")
     public ResponseEntity<String> getData(@RequestParam(value = "roadId") String roadId) throws IOException {
         Autobahn id = Autobahn.findByString(roadId);
