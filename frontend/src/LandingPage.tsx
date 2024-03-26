@@ -5,7 +5,6 @@ import {
     CardContent,
     CircularProgress,
     Grid,
-    Link,
     TextField,
 } from "@mui/material";
 import MenuAppBar from "./MenuAppBar";
@@ -13,11 +12,10 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
-    let navigate = useNavigate();
 
     const [roadworksData, setRoadworksData] = useState<Roadwork[]>([]);
     const [search, setSearch] = useState("");
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     type Roadwork = {
         identifier: string;
@@ -51,21 +49,7 @@ function LandingPage() {
     }
 
     useEffect(() => {
-        //fetchRoadworks();
     }, []);
-
-    const fetchRoadworks = () => {
-        fetch(`http://localhost:8080/roadworks?roadId=A1`)
-            .then((response) => response.json())
-            .then((json) => {
-                setRoadworksData(json.roadworks); // Anpassung für die Roadworks-Datenstruktur
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Error fetching roadworks:", error);
-                setLoading(false); // Setzen Sie loading auf false, um sicherzustellen, dass der Ladeindikator auch bei einem Fehler ausgeblendet wird
-            });
-    };
 
     const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
         setSearch(event.target.value);
@@ -73,13 +57,11 @@ function LandingPage() {
 
     function doSearch() {
         if (search.trim() === "") {
-            // Wenn die Sucheingabe leer ist, brechen Sie die Funktion ab
             return;
         }
+        setLoading(true);
+        const searchParam = search.trim().toUpperCase();
 
-        const searchParam = search.trim().toUpperCase(); // Konvertieren Sie den Suchbegriff in Großbuchstaben
-
-        // Führen Sie den Fetch-Vorgang mit dem Suchbegriff als Query-Parameter durch
         fetch(`http://localhost:8080/roadworks?roadId=${searchParam}`)
             .then((response) => response.json())
             .then((json) => {
