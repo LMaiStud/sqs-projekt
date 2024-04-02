@@ -1,4 +1,4 @@
-package com.service;
+package com.sqs_maier.service;
 
 import com.sqs_maier.model.Data;
 import com.sqs_maier.service.DataService;

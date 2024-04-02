@@ -14,7 +14,7 @@ import java.net.URL;
 public class ExternalApiService {
 
     @Value("${external.api.baseurl}")
-    private String baseUrl;
+    public String baseUrl;
 
     public String fetchDataFromExternalAPI(Autobahn autobahn) throws IOException {
         String output = "";

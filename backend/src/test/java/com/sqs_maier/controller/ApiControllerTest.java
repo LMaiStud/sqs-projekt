@@ -1,12 +1,9 @@
-package com.controller;
+package com.sqs_maier.controller;
 
-import com.sqs_maier.controller.ApiController;
 import com.sqs_maier.service.DataService;
 import com.sqs_maier.util.Autobahn;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ApiController.class)
@@ -43,4 +41,6 @@ class ApiControllerTest {
         // Assert
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
+
+
 }
