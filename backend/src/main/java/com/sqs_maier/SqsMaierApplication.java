@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 public class SqsMaierApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(SqsMaierApplication.class, args);
     }
 

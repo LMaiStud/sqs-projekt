@@ -14,6 +14,7 @@ function LandingPage() {
 
     const [roadworksData, setRoadworksData] = useState<Roadwork[]>([]);
     const [search, setSearch] = useState("");
+    const [searchResult, setsearchResult] = useState("Bitte Baustelle Suchen!");
     const [loading, setLoading] = useState(false);
 
     type Roadwork = {
@@ -68,7 +69,7 @@ function LandingPage() {
                 setLoading(false);
             })
             .catch((error) => {
-                console.error("Error fetching roadworks:", error);
+                setsearchResult("Diese Baustelle existiert nicht!")
                 setLoading(false);
             });
     }
@@ -130,7 +131,7 @@ function LandingPage() {
                                         ))}
                                     </ul>
                                 ) : (
-                                    <p>Keine Baustellendaten verfügbar.</p>
+                                    <p>{searchResult}</p>
                                 )}
                             </Grid>
                         </Grid>
