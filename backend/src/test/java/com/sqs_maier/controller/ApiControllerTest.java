@@ -41,5 +41,18 @@ class ApiControllerTest {
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
     }
 
+    @Test
+    void getData_withKnownRoadId_shouldReturnFound() throws IOException {
+        // Arrange
+        String roadId = "A1";
+        when(dataService.getData(Autobahn.A1)).thenReturn(ResponseEntity.ok("Some data")); // Mock dataService response
+
+        // Act
+        ResponseEntity<String> response = apiController.getData(roadId);
+
+        // Assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
 
 }
