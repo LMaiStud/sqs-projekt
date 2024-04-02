@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import MenuAppBar from "./MenuAppBar";
 import { ChangeEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
 

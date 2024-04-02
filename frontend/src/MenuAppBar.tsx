@@ -3,13 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link, ListItemIcon, Menu, MenuItem } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import LoginIcon from "@mui/icons-material/Login";
-import LogoutIcon from "@mui/icons-material/Logout";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 
 function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -71,7 +64,7 @@ function MenuAppBar() {
               textAlign: "center",
             }}
           >
-            Bestes Autobaustellenauskunft
+            Beste Autobaustellenauskunft
           </Typography>
 
         </Toolbar>
