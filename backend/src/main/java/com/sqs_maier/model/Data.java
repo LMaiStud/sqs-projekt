@@ -1,9 +1,6 @@
 package com.sqs_maier.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -15,12 +12,14 @@ public class Data {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String dataField;
 
     private Time makeTime;
 
     private Date makeDate;
 
+    @Column(unique=true)
     private String highwayCode;
 
     public String getHighwayCode() {

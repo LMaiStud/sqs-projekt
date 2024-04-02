@@ -5,31 +5,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
 function MenuAppBar() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [openLogin, setOpenLogin] = React.useState(true);
-  const [logout, setLogout] = React.useState(false);
-  const open = Boolean(anchorEl);
-
-  React.useEffect(() => {
-    let token = localStorage.getItem("token");
-    if (token !== null) {
-      setLogout(true);
-      setOpenLogin(false);
-    }
-  });
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleLogout = () => {
-    localStorage.clear();
-    localStorage.setItem("isLoggedIn", "false");
-    setOpenLogin(true);
-  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -47,7 +22,6 @@ function MenuAppBar() {
               textDecoration: "none",
             }}
           >
-            {localStorage.getItem("username")}
           </Typography>
 
           <Typography
