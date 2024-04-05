@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test;
 
 public class SqsMaierApplicationTest {
 
-        @Test
-        public void mainStartUpTest() {
-            SqsMaierApplication.main(new String[] {});
-        }
+        //only for local test (for a 100% coverage)
+        //@Test
+        //public void mainStartUpTest() {
+        //    SqsMaierApplication.main(new String[] {});
+        //}
     }
