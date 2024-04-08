@@ -45,6 +45,20 @@ UML Diagramm des Projekts:
 Architektur des Projektes:
 ![ARK](https://github.com/LMaiStud/sqs/blob/main/doc/images/Architektur.drawio.png)
 
+### Technische Eigenschaften
+
+#### Backend:
+* Spring Boot Server (v3.2.3)
+* Java 17
+
+#### Frontend:
+* VITE (v4.5.3)
+* Node (18.05)
+* Material UI components
+
+#### Datenbank:
+* MySQL (8.3.0)
+
 # Lösungsstrategie
 
 # Bausteinsicht
