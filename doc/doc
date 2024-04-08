@@ -25,7 +25,8 @@ In meinem Projekt habe ich das Ziel, die Effizienz der API-Nutzung zu verbessern
 
 ## Technischer Kontext
 
-**\<Diagramm oder Tabelle>**
+UML Diagramm des Projekts:
+![UML](https://github.com/LMaiStud/sqs/blob/main/doc/uml_digram.drawio%20(1).png)
 
 **\<optional: Erläuterung der externen technischen Schnittstellen>**
 
