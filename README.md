@@ -19,9 +19,23 @@ In meinem Projekt habe ich das Ziel, die Effizienz der API-Nutzung zu verbessern
 
 ## Fachlicher Kontext
 
-**\<Diagramm und/oder Tabelle>**
+### Externe Schnittstelle Autobahn App API
+Die Schnittstelle ermöglicht es, eine Liste der aktuellen Baustellen für eine bestimmte Autobahn abzurufen.
 
-**\<optional: Erläuterung der externen fachlichen Schnittstellen>**
+* GET /{roadId}/services/roadworks: Dies ist der Endpunkt, um die Liste der aktuellen Baustellen abzurufen. Der Platzhalter {roadId} wird durch die Autobahnkennung ersetzt, für die die Baustellen abgerufen werden sollen.
+
+Parameters:
+
+* roadId*: Die Kennung der Autobahn, für die die Baustellen abgerufen werden sollen. Es handelt sich um einen Pfadparameter vom Typ String. Beispiel: "A1".
+Responses:
+
+* 200 Success: Erfolgreiche Antwort, die eine Liste der aktuellen Baustellen im JSON-Format zurückgibt.
+* 204 Not found: Es wurden keine Baustellen gefunden.
+* 400 Internal server error: Interner Serverfehler.
+* 404 Not found: Die angeforderte Ressource wurde nicht gefunden.
+* Media type: Die Antwort ist im JSON-Format.
+
+Diese Schnittstelle bietet eine einfache Möglichkeit, die aktuellen Baustellen für eine spezifische Autobahn abzurufen und die Informationen darüber zu erhalten, was die Baustellen einschränken und wie lange sie voraussichtlich dauern werden.
 
 ## Technischer Kontext
 
@@ -30,11 +44,6 @@ UML Diagramm des Projekts:
 
 Architektur des Projektes:
 ![ARK](https://github.com/LMaiStud/sqs/blob/main/doc/images/Architektur.drawio.png)
-
-
-**\<optional: Erläuterung der externen technischen Schnittstellen>**
-
-**\<Mapping fachliche auf technische Schnittstellen>**
 
 # Lösungsstrategie
 
