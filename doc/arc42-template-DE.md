@@ -10,8 +10,8 @@ In meinem Projekt habe ich das Ziel, die Effizienz der API-Nutzung zu verbessern
 
 | Rolle        | Kontakt        | Erwartungshaltung |
 |--------------|----------------|-------------------|
-| *\<Rolle-1>* | *\<Kontakt-1>* | *\<Erwartung-1>*  |
-| *\<Rolle-2>* | *\<Kontakt-2>* | *\<Erwartung-2>*  |
+| Trainer | Beneken, Gerd (gerd.beneken@th-rosenheim.de) | "Will ein tolles Projekt sehen!"  |
+| Trainer | Reimer, Mario-Leander (mario-leander.reimer@th-rosenheim.de) | "Will ein noch besseres Prjekt sehen!"  |
 
 # Randbedingungen
 
