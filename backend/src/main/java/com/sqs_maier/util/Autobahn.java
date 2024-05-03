@@ -15,7 +15,13 @@ public enum Autobahn {
         return Autobahn.UNKNOWN;
     }
 
-    public static Autobahn[] getAllId(){
-        return Autobahn.values();
+    public static boolean contains(String code) {
+        for (Autobahn autobahn : Autobahn.values()) {
+            if (autobahn.name().equalsIgnoreCase(code)) {
+                return true;
+            }
+        }
+        return false;
     }
+
 }

@@ -41,4 +41,28 @@ class AutobahnTest {
         // Assert
         assertEquals(Autobahn.UNKNOWN, autobahn);
     }
+
+    @Test
+    void containByString_ExistingCode() {
+        // Arrange
+        String code = "A1";
+
+        // Act
+        boolean result = Autobahn.contains(code);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @Test
+    void containByString_NonExistingCode() {
+        // Arrange
+        String code = "AX";
+
+        // Act
+        boolean result = Autobahn.contains(code);
+
+        // Assert
+        assertFalse(result);
+    }
 }
