@@ -1,0 +1,40 @@
+version: '3.1'
+
+volumes:
+  db:
+
+services:
+  database:
+    image: mariadb
+    environment:
+      MARIADB_USER: &dbuser appuser
+      MARIADB_PASSWORD: ${DB_PASSWORD:-geheim}
+      MARIADB_RANDOM_ROOT_PASSWORD: "true"
+      MARIADB_DATABASE: app
+    volumes:
+      - db:/var/lib/mysql
+
+  backend:
+    image: inf-docker.github.com/LMaiStud/sqs/tree/main/backend}
+    build:
+      context: ./src/backend
+      dockerfile: docker/Dockerfile.jvm
+    depends_on:
+      - database
+    environment:
+      DATABASE_PASSWORD: ${DB_PASSWORD:-geheim}
+      DATABASE_URL: "jdbc:mariadb://database:3306/app"
+      DATABASE_USER: *dbuser
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin}
+
+  frontend:
+    image: inf-docker.github.com/LMaiStud/sqs/tree/main/backend}
+    build:
+      context: ./src/frontend
+      dockerfile: docker/Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+
