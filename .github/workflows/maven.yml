@@ -1,4 +1,4 @@
-name: Java CI with Maven and React
+name: Java CI with Maven, React, and Docker
 
 on:
   push:
@@ -31,11 +31,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build backend with Maven
-        run: mvn -B package --file backend/pom.xml
+      - name: Build backend Docker image
+        run: docker build -t backend-image backend/
 
-      - name: Build frontend with npm
-        working-directory: frontend
-        run: |
-          npm install
-          npm run build
+      - name: Build frontend Docker image
+        run: docker build -t frontend-image frontend/
