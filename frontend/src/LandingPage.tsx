@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import {
     Button,
     Card,
@@ -6,13 +6,18 @@ import {
     CircularProgress,
     Grid,
     TextField,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Typography,
+    Paper,
 } from "@mui/material";
 import MenuAppBar from "./MenuAppBar";
-import { ChangeEvent, useEffect, useState } from "react";
-import Typography from "@mui/material/Typography";
 
 function LandingPage() {
-
     const [roadworksData, setRoadworksData] = useState<Roadwork[]>([]);
     const [search, setSearch] = useState("");
     const [searchResult, setsearchResult] = useState("Bitte Baustelle Suchen!");
@@ -20,37 +25,11 @@ function LandingPage() {
 
     type Roadwork = {
         identifier: string;
-        icon: string;
-        isBlocked: string;
-        future: boolean;
-        extent: string;
-        point: string;
-        startLcPosition: string;
-        impact: {
-            lower: string;
-            upper: string;
-            symbols: string[];
-        };
-        display_type: string;
-        subtitle: string;
         title: string;
-        startTimestamp: string;
-        coordinate: {
-            lat: number;
-            long: number;
-        };
         description: string[];
-        routeRecommendation: any[];
-        footer: any[];
-        lorryParkingFeatureIcons: any[];
-        geometry: {
-            type: string;
-            coordinates: number[][];
-        };
-    }
+    };
 
-    useEffect(() => {
-    }, []);
+    useEffect(() => {}, []);
 
     const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
         setSearch(event.target.value);
@@ -70,7 +49,7 @@ function LandingPage() {
                 setLoading(false);
             })
             .catch((error) => {
-                setsearchResult("Diese Baustelle existiert nicht!")
+                setsearchResult("Diese Autobahn existiert nicht!");
                 setLoading(false);
                 setRoadworksData([]);
             });
@@ -103,8 +82,6 @@ function LandingPage() {
                 >
                     <CardContent>
                         <Grid container spacing={1} alignItems="center">
-                            <Grid xs={12} sm={2} item>
-                            </Grid>
                             <Grid container spacing={2} alignItems="center">
                                 <Grid item xs={10} sm={10} md={10}>
                                     <TextField
@@ -129,29 +106,38 @@ function LandingPage() {
                                 </Grid>
                             </Grid>
                             <Grid item xs={12}>
-                                <Typography variant="h4">Autobahnen:</Typography>
+                                <Typography variant="h4">Autobahnbaustellen:</Typography>
                                 {loading ? (
                                     <CircularProgress />
                                 ) : roadworksData.length > 0 ? (
-                                    <Grid container spacing={2}>
-                                        {roadworksData.map((roadwork) => (
-                                            <Grid key={roadwork.identifier} item xs={12}>
-                                                <Card>
-                                                    <CardContent>
-                                                        <Typography variant="h5">{roadwork.title}</Typography>
-                                                        {roadwork.description.map((desc, index) => (
-                                                            <Typography key={index}>{desc}</Typography>
-                                                        ))}
-                                                    </CardContent>
-                                                </Card>
-                                            </Grid>
-                                        ))}
-                                    </Grid>
+                                    <TableContainer component={Paper}>
+                                        <Table>
+                                            <TableHead>
+                                                <TableRow>
+                                                    <TableCell>Standort</TableCell>
+                                                    <TableCell>Beschreibung</TableCell>
+                                                </TableRow>
+                                            </TableHead>
+                                            <TableBody>
+                                                {roadworksData.map((roadwork) => (
+                                                    <TableRow key={roadwork.identifier}>
+                                                        <TableCell component="th" scope="row">
+                                                            {roadwork.title}
+                                                        </TableCell>
+                                                        <TableCell>
+                                                            {roadwork.description.map((desc, index) => (
+                                                                <Typography key={index}>{desc}</Typography>
+                                                            ))}
+                                                        </TableCell>
+                                                    </TableRow>
+                                                ))}
+                                            </TableBody>
+                                        </Table>
+                                    </TableContainer>
                                 ) : (
                                     <Typography>{searchResult}</Typography>
                                 )}
                             </Grid>
-
                         </Grid>
                     </CardContent>
                 </Card>
