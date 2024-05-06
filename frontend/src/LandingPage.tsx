@@ -46,10 +46,13 @@ function LandingPage() {
             .then((response) => response.json())
             .then((json) => {
                 setRoadworksData(json.roadworks);
+                if(roadworksData.length==0){
+                    setsearchResult(`Keine Baustellen auf der ${searchParam} gefunden!`);
+                }
                 setLoading(false);
             })
             .catch((error) => {
-                setsearchResult("Diese Autobahn existiert nicht!");
+                setsearchResult(`Diese Autobahn "${searchParam}" existiert nicht!`);
                 setLoading(false);
                 setRoadworksData([]);
             });
@@ -106,7 +109,7 @@ function LandingPage() {
                                 </Grid>
                             </Grid>
                             <Grid item xs={12}>
-                                <Typography variant="h4">Autobahnbaustellen:</Typography>
+                                <Typography variant="h4" align="center"> </Typography>
                                 {loading ? (
                                     <CircularProgress />
                                 ) : roadworksData.length > 0 ? (
@@ -135,7 +138,7 @@ function LandingPage() {
                                         </Table>
                                     </TableContainer>
                                 ) : (
-                                    <Typography>{searchResult}</Typography>
+                                    <Typography variant="h5">{searchResult}</Typography>
                                 )}
                             </Grid>
                         </Grid>
