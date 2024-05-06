@@ -1,6 +1,5 @@
 package com.sqs_maier;
-
-import com.sqs_maier.service.DataService;
+;
 import com.sqs_maier.util.Autobahn;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @TestPropertySource(locations = "classpath:application.properties")
-
 class IntegrationTest {
 
     @Autowired
@@ -55,12 +53,10 @@ class IntegrationTest {
                             .param("roadId", autobahns[index].toString())
                             .contentType(MediaType.APPLICATION_JSON))
                     .andReturn().getResponse().getContentAsString();
-
             assertTrue(apiResponses.contains(responseFromMockMvc));
         }
 
         //prueft ob jede Baustelle von Backend korrekt in die DB gespeichert wurde
-        List<String> apiResponsesFromDB = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT * FROM data")) {
@@ -72,14 +68,14 @@ class IntegrationTest {
 
                 String responseCodeFromDB = resultSet.getString("highway_code");
                 assertTrue(Autobahn.contains(responseCodeFromDB));
-            }}
-
+            }
+        }
 
     }
 
-    public List<String> getAllResponses(Autobahn[] autobahns){
-        //holt sich alle aktuellen Autobahnbaustellen
+    public List<String> getAllResponses(Autobahn[] autobahns) {
 
+        //holt sich alle aktuellen Autobahnbaustellen
         List<String> apiResponses = new ArrayList<>();
 
         for (Autobahn autobahn : autobahns) {

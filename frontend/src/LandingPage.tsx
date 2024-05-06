@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import MenuAppBar from "./MenuAppBar";
 import { ChangeEvent, useEffect, useState } from "react";
+import Typography from "@mui/material/Typography";
 
 function LandingPage() {
 
@@ -71,6 +72,7 @@ function LandingPage() {
             .catch((error) => {
                 setsearchResult("Diese Baustelle existiert nicht!")
                 setLoading(false);
+                setRoadworksData([]);
             });
     }
 
@@ -103,37 +105,53 @@ function LandingPage() {
                         <Grid container spacing={1} alignItems="center">
                             <Grid xs={12} sm={2} item>
                             </Grid>
-                            <Grid xs={12} sm={12} item>
-                                <TextField
-                                    fullWidth
-                                    label="Suche"
-                                    variant="outlined"
-                                    value={search}
-                                    onChange={handleSearch}
-                                    onKeyDown={handleEnter}
-                                />
-                                <h3></h3>
-                                <Button variant="contained" onClick={doSearch} type="submit">
-                                    Suche starten
-                                </Button>
+                            <Grid container spacing={2} alignItems="center">
+                                <Grid item xs={10} sm={10} md={10}>
+                                    <TextField
+                                        fullWidth
+                                        label="Suche"
+                                        variant="outlined"
+                                        value={search}
+                                        onChange={handleSearch}
+                                        onKeyDown={handleEnter}
+                                    />
+                                </Grid>
+                                <Grid item xs={2} sm={2} md={2}>
+                                    <Button
+                                        fullWidth
+                                        variant="contained"
+                                        onClick={doSearch}
+                                        type="submit"
+                                        style={{ height: "100%" }}
+                                    >
+                                        Suche
+                                    </Button>
+                                </Grid>
                             </Grid>
-                            <Grid xs={12} item>
-                                <h3>Baustellen:</h3>
+                            <Grid item xs={12}>
+                                <Typography variant="h4">Autobahnen:</Typography>
                                 {loading ? (
                                     <CircularProgress />
                                 ) : roadworksData.length > 0 ? (
-                                    <ul>
+                                    <Grid container spacing={2}>
                                         {roadworksData.map((roadwork) => (
-                                            <li key={roadwork.identifier}>
-                                                <h4>{roadwork.title}</h4>
-                                                <p>{roadwork.description.join("\n")}</p>
-                                            </li>
+                                            <Grid key={roadwork.identifier} item xs={12}>
+                                                <Card>
+                                                    <CardContent>
+                                                        <Typography variant="h5">{roadwork.title}</Typography>
+                                                        {roadwork.description.map((desc, index) => (
+                                                            <Typography key={index}>{desc}</Typography>
+                                                        ))}
+                                                    </CardContent>
+                                                </Card>
+                                            </Grid>
                                         ))}
-                                    </ul>
+                                    </Grid>
                                 ) : (
-                                    <p>{searchResult}</p>
+                                    <Typography>{searchResult}</Typography>
                                 )}
                             </Grid>
+
                         </Grid>
                     </CardContent>
                 </Card>
