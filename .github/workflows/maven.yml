@@ -1,5 +1,9 @@
 name: Java CI with Maven and React
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   push:
     branches: [ "main" ]
