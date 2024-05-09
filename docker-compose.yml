@@ -1,37 +1,41 @@
-version: "3.8"
-
-services:
-  mysqldb:
-    image: mysql
-    restart: unless-stopped
-    env_file: ./.env
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=root
-    ports:
-      - 3306:3306
-    volumes:
-      - db:/var/lib/mysql
-  app:
-    depends_on:
-      - mysqldb
-    build: ./backend
-    restart: on-failure
-    env_file: ./.env
-    ports:
-      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
-    environment:
-      SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:mysql://mysqldb:$MYSQLDB_DOCKER_PORT/$MYSQLDB_DATABASE?useSSL=false",
-        "spring.datasource.username" : "$MYSQLDB_USER",
-        "spring.datasource.password" : "$MYSQLDB_ROOT_PASSWORD",
-        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-        "spring.jpa.hibernate.ddl-auto" : "update"
-      }'
-    volumes:
-      - .m2:/root/.m2
-    stdin_open: true
-    tty: true
+version: '3.7'
 
 volumes:
+  postgres_data:
+
+services:
   db:
+    container_name: sqs_pg_compose
+    image: postgres:14
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sqs
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    restart: unless-stopped
+    container_name: sqs_backend
+    image: ghcr.io/okanx68/sqs-project/sqs_backend:latest
+    build:
+      context: ./backend
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  frontend:
+    restart: unless-stopped
+    container_name: sqs_frontend
+    image: ghcr.io/okanx68/sqs-project/sqs_frontend:latest
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
