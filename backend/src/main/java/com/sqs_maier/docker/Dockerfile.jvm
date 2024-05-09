@@ -7,11 +7,11 @@
 #
 # Dann erstellen Sie das Image mit:
 #
-# docker build -t springboot/app .
+# docker build -t springboot/backend .
 #
 # Dann starten Sie den Container mit:
 #
-# docker run -i --rm -p 8080:8080 springboot/app
+# docker run -i --rm -p 8080:8080 springboot/backend
 #
 # Wenn Sie den Debug-Port in Ihr Docker-Image aufnehmen möchten,
 # müssen Sie den Debug-Port (standardmäßig 5005) wie folgt freigeben:  EXPOSE 8080 5005.
@@ -44,6 +44,8 @@ COPY target/*.jar /app.jar
 
 # Exponieren Sie den Port, den Ihre Anwendung verwenden wird
 EXPOSE 8080
+
+ENV DB_HOST=host.docker.internal
 
 # Starten Sie die Anwendung beim Starten des Containers
 ENTRYPOINT ["java", "-jar", "/app.jar"]
