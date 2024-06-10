@@ -1,5 +1,5 @@
 config:
-  target: "http://0.0.0.0:32768"
+  target: "http://localhost:${host_port}"
   phases:
     - duration: 60
       arrivalRate: 20
