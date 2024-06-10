@@ -70,8 +70,11 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
+      - name: Start MySQL Database
+        run: docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=data mysql:latest
+
       - name: Start Backend
-        run: docker run -d -p 8080:8080 ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest
+        run: docker run -d -p 8080:8080 --network host ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest
 
       - name: Run Artillery Tests
         if: success()
