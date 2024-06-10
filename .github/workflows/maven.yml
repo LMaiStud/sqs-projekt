@@ -25,6 +25,12 @@ jobs:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
+      backend:
+        image: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest
+        ports:
+          - 8080:8080
+        options: --health-cmd="curl --fail http://localhost:8080/actuator/health || exit 1" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
       - uses: actions/checkout@v3
 
@@ -70,12 +76,12 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
-
-  artillery:
-    image: artilleryio/artillery
-    container_name: sqs_artillery
-    volumes:
-      - ./backend:/scripts
-    depends_on:
-      - backend
-    entrypoint: ["artillery", "run", "/scripts/artillery.yml"]
+      - name: Run Artillery tests
+        uses: addnab/docker-run-action@v3
+        with:
+          image: artilleryio/artillery
+          options: --rm
+          entrypoint: ["artillery", "run", "/scripts/artillery.yml"]
+          volumes: ./backend:/scripts
+          env:
+            DEPENDS_ON: backend
