@@ -83,7 +83,7 @@ jobs:
       - name: Log Host Port
         run: echo "Backend is running on port ${{ steps.start_backend.outputs.host_port }}"
 
-      - name: Show Backend Container Logs
+      - name: Show Backend Container Logss
         run: docker logs ${{ steps.start_backend.outputs.container_id }}
 
       - name: Show Running Containers
