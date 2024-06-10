@@ -40,11 +40,3 @@ services:
     depends_on:
       - backend
 
-  artillery:
-    image: artilleryio/artillery
-    container_name: sqs_artillery
-    volumes:
-      - ./backend:/scripts
-    depends_on:
-      - backend
-    entrypoint: ["artillery", "run", "/scripts/artillery.yml"]
