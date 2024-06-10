@@ -70,13 +70,8 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
-      - name: Checkout artillery tests
-        uses: actions/checkout@v3
+      - name: Load Test action step
+        id: load-test
+        uses: LMaiStud/sqs@main
         with:
-          repository: LMaiStud/sqs
-          path: artillery-tests
-
-      - name: Run Artillery tests
-        uses: artilleryio/action-cli@v1
-        with:
-          command: run ./artillery-tests/artillery.yml
+          filepath: artillery-tests/load-test.yml
