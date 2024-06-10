@@ -79,4 +79,4 @@ jobs:
       - name: Run Artillery tests
         uses: artilleryio/action-cli@v1
         with:
-          command: run /github/workspace/artillery-tests/artillery.yml
+          command: run ./artillery-tests/artillery.yml
