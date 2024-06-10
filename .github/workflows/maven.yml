@@ -69,9 +69,3 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
-
-      - name: Load Test action step
-        id: load-test
-        uses: LMaiStud/sqs@main
-        with:
-          filepath: artillery-tests/load-test.yml
