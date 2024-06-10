@@ -90,4 +90,4 @@ jobs:
         if: success()
         run: |
           npm install -g artillery
-          artillery run artillery-tests/artillery.yml --target http://localhost:${{ steps.start_backend.outputs.host_port }}
+          artillery run artillery-tests/artillery.yml
