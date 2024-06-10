@@ -79,6 +79,9 @@ jobs:
       - name: Show Backend Container Logs
         run: docker logs ${{ steps.start_backend.outputs.container_id }}
 
+      - name: Show Running Containers
+        run: docker ps
+
       - name: Run Artillery Tests
         if: success()
         run: |
