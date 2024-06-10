@@ -70,12 +70,13 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
-      - name: Run Artillery tests
-        uses: addnab/docker-run-action@v3
+      - name: Checkout artillery tests
+        uses: actions/checkout@v3
         with:
-          image: artilleryio/artillery
-          options: --rm
-          entryPoint: artillery
-          args: run /scripts/artillery.yml
-          volumes: /home/runner/work/sqs/sqs/backend:/scripts
-          shell: sh
+          repository: username/your-artillery-repo
+          path: artillery-tests
+
+      - name: Run Artillery tests
+        uses: artilleryio/action-cli@v1
+        with:
+          command: run /github/workspace/artillery-tests/artillery.yml
