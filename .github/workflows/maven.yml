@@ -70,11 +70,14 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
-      - name: Start MySQL Database
-        run: docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=data mysql:latest
+      - name: Start Backend Container
+        id: start_backend
+        run: |
+          container_id=$(docker run -d -p 8080:8080 ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest)
+          echo "::set-output name=container_id::$container_id"
 
-      - name: Start Backend
-        run: docker run -d -p 8080:8080 --network host ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest
+      - name: Show Backend Container Logs
+        run: docker logs ${{ steps.start_backend.outputs.container_id }}
 
       - name: Run Artillery Tests
         if: success()
