@@ -81,7 +81,5 @@ jobs:
         with:
           image: artilleryio/artillery
           options: --rm
-          entrypoint: ["artillery", "run", "/scripts/artillery.yml"]
+          entrypoint: "artillery run /scripts/artillery.yml"
           volumes: ./backend:/scripts
-        env:
-          DEPENDS_ON: backend
