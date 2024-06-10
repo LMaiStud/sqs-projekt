@@ -75,5 +75,6 @@ jobs:
         with:
           image: artilleryio/artillery
           options: --rm
-          entrypoint: "artillery run /scripts/artillery.yml"
-          volumes: ./backend:/scripts
+          entrypoint: "/bin/sh -c"
+          args: "artillery run /scripts/artillery.yml"
+          volumes: ${{ github.workspace }}/backend:/scripts
