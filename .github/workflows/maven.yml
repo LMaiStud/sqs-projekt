@@ -80,6 +80,9 @@ jobs:
           echo "host_port=${host_port}" >> $GITHUB_ENV
           echo "::set-output name=host_port::$host_port"
 
+      - name: Log Host Port
+        run: echo "Backend is running on port ${{ steps.start_backend.outputs.host_port }}"
+
       - name: Show Backend Container Logs
         run: docker logs ${{ steps.start_backend.outputs.container_id }}
 
@@ -90,4 +93,5 @@ jobs:
         if: success()
         run: |
           npm install -g artillery
+          sed -i "s/\${host_port}/${{ steps.start_backend.outputs.host_port }}/g" artillery-tests/artillery.yml
           artillery run artillery-tests/artillery.yml
