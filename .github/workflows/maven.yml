@@ -6,12 +6,13 @@ permissions:
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   pull_request:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     services:
@@ -23,12 +24,6 @@ jobs:
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
-      backend:
-        image: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest
-        ports:
-          - 8080:8080
-        options: --health-cmd="curl --fail http://localhost:8080/actuator/health || exit 1" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - uses: actions/checkout@v3
