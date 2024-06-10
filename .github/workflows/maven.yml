@@ -69,3 +69,8 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
+
+      - name: Run Artillery Tests
+        run: |
+          npm install -g artillery
+          artillery run artillery-tests/artillery.yml
