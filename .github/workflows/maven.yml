@@ -73,7 +73,7 @@ jobs:
       - name: Checkout artillery tests
         uses: actions/checkout@v3
         with:
-          repository: username/your-artillery-repo
+          repository: LMaiStud/sqs
           path: artillery-tests
 
       - name: Run Artillery tests
