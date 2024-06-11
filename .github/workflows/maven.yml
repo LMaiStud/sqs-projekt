@@ -90,8 +90,16 @@ jobs:
           npm install -g artillery
           artillery run artillery-tests/artillery.yml
 
+      - name: Build playwright with npm
+        working-directory: playwright
+        run: |
+          npm install
+          npm run build
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          cd playwright
+          npx playwright test --config playwright.config.js
