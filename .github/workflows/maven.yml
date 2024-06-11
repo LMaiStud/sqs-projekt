@@ -167,3 +167,41 @@ jobs:
         run: |
           cd playwright
           npx playwright test --config playwright.config.js
+
+
+  Int-Test:
+    runs-on: ubuntu-latest
+    needs: Build-Frontend-and-Backend-and-push-imges
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Show Running Containers
+        run: docker ps
+
+      - name: Start Docker Compose
+        run: docker-compose -f ./docker-compose.yml up -d
+
+      - name: Wait for services to start
+        run: sleep 15
+
+      - name: Fetch and compare JSON responses
+        run: |
+          local_response=$(curl -s http://localhost:8080/roadworks?roadId=A8)
+          remote_response=$(curl -s https://verkehr.autobahn.de/o/autobahn/A99/services/roadworks)
+
+          if [ "$local_response" = "$remote_response" ]; then
+            echo "The JSON responses are equal."
+          else
+            echo "The JSON responses are not equal."
+            echo "Local response: $local_response"
+            echo "Remote response: $remote_response"
+            exit 1
+          fi
