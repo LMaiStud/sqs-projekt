@@ -70,24 +70,25 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
-      - name: Stop any running MySQL container
+      - name: Stop and remove any running MySQL container
         run: |
           docker ps -q --filter "name=sqs_db" | grep -q . && docker stop sqs_db || echo "No MySQL container running"
+          docker ps -aq --filter "name=sqs_db" | grep -q . && docker rm sqs_db || echo "No MySQL container to remove"
 
       - name: Start Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
 
-      - name: Log Host Port
-        run: echo "Backend is running on port ${{ steps.start_backend.outputs.host_port }}"
-
-      - name: Show Backend Container Logss
-        run: docker logs ${{ steps.start_backend.outputs.container_id }}
-
       - name: Show Running Containers
         run: docker ps
 
+      - name: Show Backend Container Logs
+        run: docker logs sqs_backend
+
+      - name: Show Frontend Container Logs
+        run: docker logs sqs_frontend
+
       - name: Update Artillery Script with Host Port
-        run: sed -i "s/\${host_port}/${{ steps.start_backend.outputs.host_port }}/g" artillery-tests/artillery.yml
+        run: sed -i "s/\${host_port}/8080/g" artillery-tests/artillery.yml
 
       - name: Log Updated Artillery Script
         run: cat artillery-tests/artillery.yml
