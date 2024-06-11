@@ -129,6 +129,9 @@ jobs:
       - name: Update Artillery Script with Host Port
         run: sed -i "s/\${host_port}/8080/g" artillery-tests/artillery.yml
 
+      - name: Fetch and display local JSON response
+        run: curl -s http://localhost:8080/roadworks?roadId=A99
+
       - name: Run Artillery Tests
         if: success()
         run: |
