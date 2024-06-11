@@ -19,12 +19,17 @@ services:
   backend:
     restart: unless-stopped
     container_name: sqs_backend
-    image: ghcr.io/lmaistud/sqs/sqs_backend:latest
     build:
       context: ./backend
       dockerfile: src/main/java/com/sqs_maier/docker/Dockerfile.jvm
+    environment:
+      - DB_HOST=db
+      - JAVA_DEBUG=true
+      - JAVA_DEBUG_PORT=5005
+      - SERVER_ADDRESS=0.0.0.0
     ports:
       - "8080:8080"
+      - "5005:5005"
     depends_on:
       - db
 
@@ -39,4 +44,3 @@ services:
       - "80:80"
     depends_on:
       - backend
-
