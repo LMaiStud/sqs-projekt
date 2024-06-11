@@ -70,6 +70,9 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
+      - name: Show Running Containers
+        run: docker ps
+
       - name: Start Backend Container
         id: start_backend
         run: |
