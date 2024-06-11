@@ -91,7 +91,7 @@ jobs:
           artillery run artillery-tests/artillery.yml
 
       - name: Install Playwright
-        run: npm install -g playwright
+        run: npm install @playwright/test --save-dev
 
       - name: Run Playwright Tests
         run: npx playwright test
