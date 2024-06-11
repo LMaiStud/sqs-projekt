@@ -70,6 +70,9 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
+      - name: Show Running Containers
+        run: docker ps
+
       - name: Stop and remove any running containers
         run: |
           docker ps -q | xargs docker stop
@@ -77,7 +80,6 @@ jobs:
 
       - name: Start Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
-
 
       - name: Update Artillery Script with Host Port
         run: sed -i "s/\${host_port}/8080/g" artillery-tests/artillery.yml
@@ -89,11 +91,7 @@ jobs:
           artillery run artillery-tests/artillery.yml
 
       - name: Install Playwright
-        npm install -g playwright
+        run: npm install -g playwright
 
       - name: Run Playwright Tests
-        run: |
-          cd frontend
-          cd src
-          cd tests
-          playwright test tests
+        run: npx playwright test
