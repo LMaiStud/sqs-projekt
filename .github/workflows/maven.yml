@@ -129,3 +129,21 @@ jobs:
         run: |
           cd playwright
           npx playwright test --config playwright.config.js
+
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v2
+
+  dependency-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run OWASP Dependency-Check
+        uses: dependency-check/action@v1
+        with:
+          project: 'sqs'
