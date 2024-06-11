@@ -86,6 +86,9 @@ jobs:
       - name: Log Host Port
         run: echo "Backend is running on port ${{ steps.start_backend.outputs.host_port }}"
 
+      - name: Test Backend Connectivity
+        run: curl -v http://localhost:${{ steps.start_backend.outputs.host_port }}/roadworks?roadId=A99
+
       - name: Show Backend Container Logss
         run: docker logs ${{ steps.start_backend.outputs.container_id }}
 
