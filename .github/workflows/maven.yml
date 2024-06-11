@@ -194,7 +194,7 @@ jobs:
 
       - name: Fetch and compare JSON responses
         run: |
-          local_response=$(curl -s http://localhost:8080/roadworks?roadId=A8)
+          local_response=$(curl -s http://0.0.0.0:8080/roadworks?roadId=A99)
           remote_response=$(curl -s https://verkehr.autobahn.de/o/autobahn/A99/services/roadworks)
 
           if [ "$local_response" = "$remote_response" ]; then
