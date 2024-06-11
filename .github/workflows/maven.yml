@@ -105,6 +105,9 @@ jobs:
       - name: Start Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
 
+      - name: Wait for services to start
+        run: sleep 15
+
       - name: Update Artillery Script with Host Port
         run: sed -i "s/\${host_port}/8080/g" artillery-tests/artillery.yml
 
