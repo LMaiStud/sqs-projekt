@@ -70,6 +70,9 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
+      - name: Show Running Containers
+        run: docker ps
+
       - name: Stop and remove any running MySQL container
         run: |
           docker ps -q --filter "name=sqs_db" | grep -q . && docker stop sqs_db || echo "No MySQL container running"
