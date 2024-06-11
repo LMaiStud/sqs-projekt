@@ -20,7 +20,7 @@ import MenuAppBar from "./MenuAppBar";
 function LandingPage() {
     const [roadworksData, setRoadworksData] = useState<Roadwork[]>([]);
     const [search, setSearch] = useState("");
-    const [searchResult, setsearchResult] = useState("Bitte Baustelle Suchen!");
+    const [searchResult, setSearchResult] = useState("Bitte Baustelle Suchen!");
     const [loading, setLoading] = useState(false);
 
     type Roadwork = {
@@ -37,6 +37,8 @@ function LandingPage() {
 
     function doSearch() {
         if (search.trim() === "") {
+            setSearchResult("Bitte Baustelle Suchen!");
+            setRoadworksData([]);
             return;
         }
         setLoading(true);
@@ -46,13 +48,15 @@ function LandingPage() {
             .then((response) => response.json())
             .then((json) => {
                 setRoadworksData(json.roadworks);
-                if(roadworksData.length==0){
-                    setsearchResult(`Keine Baustellen auf der ${searchParam} gefunden!`);
+                if (json.roadworks.length === 0) {
+                    setSearchResult(`Keine Baustellen auf der ${searchParam} gefunden!`);
+                } else {
+                    setSearchResult(`Die Autobahn ${searchParam} wurde gefunden!`);
                 }
                 setLoading(false);
             })
             .catch((error) => {
-                setsearchResult(`Diese Autobahn "${searchParam}" existiert nicht!`);
+                setSearchResult(`Diese Autobahn "${searchParam}" existiert nicht!`);
                 setLoading(false);
                 setRoadworksData([]);
             });
@@ -112,7 +116,10 @@ function LandingPage() {
                                 <Typography variant="h4" align="center"> </Typography>
                                 {loading ? (
                                     <CircularProgress />
-                                ) : roadworksData.length > 0 ? (
+                                ) : (
+                                    <Typography variant="h5">{searchResult}</Typography>
+                                )}
+                                {roadworksData.length > 0 && !loading && (
                                     <TableContainer component={Paper}>
                                         <Table>
                                             <TableHead>
@@ -137,8 +144,6 @@ function LandingPage() {
                                             </TableBody>
                                         </Table>
                                     </TableContainer>
-                                ) : (
-                                    <Typography variant="h5">{searchResult}</Typography>
                                 )}
                             </Grid>
                         </Grid>
