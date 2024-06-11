@@ -152,6 +152,9 @@ jobs:
       - name: Start Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
 
+      - name: Wait for services to start
+        run: sleep 15
+
       - name: Build playwright with npm
         working-directory: playwright
         run: |
