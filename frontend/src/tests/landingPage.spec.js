@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+
+test.describe('New Todo', () => {
 test('sucheMitFlaschenSuchbegriff', async ({ page }) => {
     await page.goto('http://localhost/');
     await page.getByLabel('Suche').click();
@@ -73,5 +75,6 @@ test('sucheKleinGrossSchreibung', async ({ page }) => {
     await page.getByLabel('Suche').fill('A9999');
     await page.getByRole('button', { name: 'Suche' }).click();
     await page.getByRole('heading', { name: 'Diese Autobahn "A9999"' }).click();
+});
 });
 
