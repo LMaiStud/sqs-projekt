@@ -101,3 +101,9 @@ jobs:
         run: |
           npm install -g artillery
           artillery run artillery-tests/artillery.yml
+
+      - name: Install Playwright
+        run: npm install -g playwright
+
+      - name: Run Playwright Tests
+        run: playwright test
