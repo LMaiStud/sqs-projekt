@@ -79,21 +79,12 @@ jobs:
         run: docker-compose -f ./docker-compose.yml up -d
 
 
-      - name: Update Artillery Script with Host Port
-        run: sed -i "s/\${host_port}/8080/g" artillery-tests/artillery.yml
-
-      - name: Run Artillery Tests
-        if: success()
-        run: |
-          npm install -g artillery
-          artillery run artillery-tests/artillery.yml
-
       - name: Install Playwright
-        run: yarn global add playwright
+        run: npm install @playwright/test@^1.44.1
 
       - name: Run Playwright Tests
         run: |
           cd frontend
           cd src
           cd tests
-          yarn test tests
+          playwright test tests
