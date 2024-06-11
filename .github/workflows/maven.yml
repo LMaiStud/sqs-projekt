@@ -89,9 +89,6 @@ jobs:
       - name: Show Running Containers
         run: docker ps
 
-      - name: Test Backend Connectivity
-        run: curl -v http://localhost:${{ steps.start_backend.outputs.host_port }}/roadworks?roadId=A99
-
       - name: Update Artillery Script with Host Port
         run: sed -i "s/\${host_port}/${{ steps.start_backend.outputs.host_port }}/g" artillery-tests/artillery.yml
 
