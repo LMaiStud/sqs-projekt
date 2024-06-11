@@ -42,7 +42,7 @@ function LandingPage() {
         setLoading(true);
         const searchParam = search.trim().toUpperCase();
 
-        fetch(`http://host.docker.internal/roadworks?roadId=${searchParam}`)
+        fetch(`http://localhost:8080/roadworks?roadId=${searchParam}`)
             .then((response) => response.json())
             .then((json) => {
                 setRoadworksData(json.roadworks);
