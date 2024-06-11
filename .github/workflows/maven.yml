@@ -70,24 +70,15 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_frontend:latest
 
-      - name: Show Running Containers
-        run: docker ps
-
-      - name: Start Backend Container
-        id: start_backend
+      - name: Stop any running MySQL container
         run: |
-          container_id=$(docker run -d -p 8080:8080 -p 5005:5005 ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest)
-          echo "container_id=${container_id}" >> $GITHUB_ENV
-          echo "::set-output name=container_id::$container_id"
-          host_port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' $container_id)
-          echo "host_port=${host_port}" >> $GITHUB_ENV
-          echo "::set-output name=host_port::$host_port"
+          docker ps -q --filter "name=sqs_db" | grep -q . && docker stop sqs_db || echo "No MySQL container running"
+
+      - name: Start Docker Compose
+        run: docker-compose -f path/to/docker-compose.yml up -d
 
       - name: Log Host Port
         run: echo "Backend is running on port ${{ steps.start_backend.outputs.host_port }}"
-
-      - name: Test Backend Connectivity
-        run: curl -v http://localhost:${{ steps.start_backend.outputs.host_port }}/roadworks?roadId=A99
 
       - name: Show Backend Container Logss
         run: docker logs ${{ steps.start_backend.outputs.container_id }}
