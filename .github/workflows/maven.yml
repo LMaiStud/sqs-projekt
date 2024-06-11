@@ -75,7 +75,7 @@ jobs:
           docker ps -q --filter "name=sqs_db" | grep -q . && docker stop sqs_db || echo "No MySQL container running"
 
       - name: Start Docker Compose
-        run: docker-compose -f path/to/docker-compose.yml up -d
+        run: docker-compose -f ./docker-compose.yml up -d
 
       - name: Log Host Port
         run: echo "Backend is running on port ${{ steps.start_backend.outputs.host_port }}"
