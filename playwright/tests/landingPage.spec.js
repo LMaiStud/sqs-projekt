@@ -69,8 +69,6 @@ test('checkTabelle', async ({ page }) => {
     await page.getByRole('columnheader', { name: 'Beschreibung' }).click();
 });
 
-import { test, expect } from '@playwright/test';
-
 test('End-to-End-Test', async ({ page }) => {
   await page.goto('http://localhost/');
   await page.getByLabel('Suche').click();
