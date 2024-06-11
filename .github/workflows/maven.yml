@@ -106,4 +106,8 @@ jobs:
         run: npm install -g playwright
 
       - name: Run Playwright Tests
-        run: playwright test
+        run: |
+          cd frontend
+          cd src
+          cd tests
+          playwright test tests
