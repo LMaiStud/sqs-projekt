@@ -73,10 +73,10 @@ jobs:
       - name: Show Running Containers
         run: docker ps
 
-      - name: Stop and remove any running MySQL container
+      - name: Stop and remove any running containers
         run: |
-          docker ps -q --filter "name=sqs_db" | grep -q . && docker stop sqs_db || echo "No MySQL container running"
-          docker ps -aq --filter "name=sqs_db" | grep -q . && docker rm sqs_db || echo "No MySQL container to remove"
+          docker ps -q | xargs docker stop
+          docker ps -aq | xargs docker rm
 
       - name: Start Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
