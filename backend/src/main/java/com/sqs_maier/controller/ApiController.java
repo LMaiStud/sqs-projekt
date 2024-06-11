@@ -19,7 +19,7 @@ public class ApiController {
         this.dataService = dataService;
     }
 
-    @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = {"http://localhost:5173", "http://localhost"})
     @GetMapping("/roadworks")
     public ResponseEntity<String> getData(@RequestParam(value = "roadId") String roadId) throws IOException {
         Autobahn id = Autobahn.findByString(roadId);
