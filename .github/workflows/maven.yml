@@ -192,6 +192,12 @@ jobs:
       - name: Wait for services to start
         run: sleep 15
 
+      - name: Fetch and display local JSON response
+        run: curl -s http://0.0.0.0:8080/roadworks?roadId=A99
+
+      - name: Fetch and display remote JSON response
+        run: curl -s https://verkehr.autobahn.de/o/autobahn/A99/services/roadworks
+
       - name: Fetch and compare JSON responses
         run: |
           local_response=$(curl -s http://0.0.0.0:8080/roadworks?roadId=A99)
