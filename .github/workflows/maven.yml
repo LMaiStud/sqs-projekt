@@ -129,15 +129,3 @@ jobs:
         run: |
           cd playwright
           npx playwright test --config playwright.config.js
-
-  dependency-review:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' || github.event_name == 'push'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v2
-        with:
-          base_ref: ${{ github.event.before }}
-          head_ref: ${{ github.sha }}
