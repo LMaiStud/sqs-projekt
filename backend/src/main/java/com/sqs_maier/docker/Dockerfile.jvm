@@ -34,18 +34,23 @@
 
 ###
 
+# Verwenden Sie das offizielle OpenJDK-17-JDK-Slim-Image als Basisimage
 FROM openjdk:17-jdk-slim
 
 # Setzen Sie hier Umgebungsvariablen für Ihre Anwendung, falls erforderlich
 ENV DB_HOST=localhost
+ENV JAVA_DEBUG=true
+ENV JAVA_DEBUG_PORT=5005
+ENV SERVER_ADDRESS=0.0.0.0
 
 # Kopieren Sie die kompilierten Spring Boot-Artefakte in den Container
 COPY target/*.jar /app.jar
 
-# Exponieren Sie den Port, den Ihre Anwendung verwenden wird
-EXPOSE 8080
+# Exponieren Sie den Port, den Ihre Anwendung verwenden wird, sowie den Debug-Port
+EXPOSE 8080 5005
 
 ENV DB_HOST=host.docker.internal
 
 # Starten Sie die Anwendung beim Starten des Containers
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-Dserver.address=0.0.0.0", "-jar", "/app.jar"]
+
