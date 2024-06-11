@@ -76,7 +76,7 @@ jobs:
       - name: Start Backend Container
         id: start_backend
         run: |
-          container_id=$(docker run -d -p 0:8080 ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest)
+          container_id=$(docker run -d -p 8080:8080 -p 5005:5005 ghcr.io/${{ env.LOWER_REPO_NAME }}/sqs_backend:latest)
           echo "container_id=${container_id}" >> $GITHUB_ENV
           echo "::set-output name=container_id::$container_id"
           host_port=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "8080/tcp") 0).HostPort}}' $container_id)
