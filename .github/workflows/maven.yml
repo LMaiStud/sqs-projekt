@@ -67,6 +67,7 @@ jobs:
           npm install
           npm run build
 
+    
       - name: Run SonarCloud Analysis for Frontend
         working-directory: frontend
         env:
@@ -76,6 +77,13 @@ jobs:
 
       - name: Prepare lowercase variables
         run: echo "LOWER_REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
+
+  Build-and-push-Backend-Frontend-Docker-image:
+    runs-on: ubuntu-latest
+    needs: Build-Frontend-and-Backend
+
+    steps:
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
