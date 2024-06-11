@@ -81,7 +81,14 @@ jobs:
       - name: Start Docker Compose
         run: docker-compose -f ./docker-compose.yml up -d
 
+      - name: Update Artillery Script with Host Port
+        run: sed -i "s/\${host_port}/8080/g" artillery-tests/artillery.yml
 
+      - name: Run Artillery Tests
+        if: success()
+        run: |
+          npm install -g artillery
+          artillery run artillery-tests/artillery.yml
 
       - name: Build playwright with npm
         working-directory: playwright
@@ -91,7 +98,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Run Playwright Frontendtests
         run: |
           cd playwright
           npx playwright test --config playwright.config.js
