@@ -123,6 +123,9 @@ jobs:
       - name: Wait for services to start
         run: sleep 15
 
+      - name: Show Running Containers
+        run: docker ps
+
       - name: Update Artillery Script with Host Port
         run: sed -i "s/\${host_port}/8080/g" artillery-tests/artillery.yml
 
@@ -154,6 +157,9 @@ jobs:
 
       - name: Wait for services to start
         run: sleep 15
+
+      - name: Show Running Containers
+        run: docker ps
 
       - name: Build playwright with npm
         working-directory: playwright
