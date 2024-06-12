@@ -50,7 +50,7 @@ class ExternalApiServiceTest {
     }
 
     @Test
-    void testDataFieldwitheNonExistingRoad() throws IOException {
+    void testDataFieldwitheNonExistingRoad() {
         // Arrange
         ExternalApiService test = new ExternalApiService();
         Autobahn autobahn = Autobahn.A1;

@@ -1,8 +1,6 @@
 package com.sqs_maier.service;
 
 import com.sqs_maier.model.Data;
-import com.sqs_maier.service.DataService;
-import com.sqs_maier.service.ExternalApiService;
 import com.sqs_maier.util.Autobahn;
 import com.sqs_maier.repository.DataRepository;
 import org.junit.jupiter.api.Test;
