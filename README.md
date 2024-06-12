@@ -90,41 +90,73 @@ Durch diesen strukturierten Ansatz konnte ein robuster und wartbarer Cache für 
 ***\<Übersichtsdiagramm>***
 
 Begründung  
-*\<Erläuternder Text>*
+*Das Gesamtsystem besteht aus mehreren miteinander verbundenen Komponenten, die gemeinsam den Cache für Autobahnbaustellen bilden. Dieses Übersichtsdiagramm bietet einen Überblick über die Interaktionen und Abhängigkeiten zwischen den einzelnen Bausteinen.*
 
 Enthaltene Bausteine  
-*\<Beschreibung der enthaltenen Bausteine (Blackboxen)>*
+- Spring Boot Backend
+- React Frontend
+- MySQL Datenbank
+- Docker Container
+- GitHub Actions
+- Artillery & Playwright Testing Tools
+- SonarCloud Analyse
+- OpenAPI Dokumentation
 
 Wichtige Schnittstellen  
-*\<Beschreibung wichtiger Schnittstellen>*
+- RESTful API-Schnittstellen zwischen Backend und Frontend
+- Schnittstellen zwischen Docker Containern
+- GitHub Actions für CI/CD-Pipelines
+- Schnittstellen zu den Testing Tools Artillery und Playwright
+- Schnittstellen zu SonarCloud für die Codeanalyse
+- OpenAPI-Schnittstelle für die API-Dokumentation
 
-### \<Name Blackbox 1>
+### Spring Boot Backend
 
-*\<Zweck/Verantwortung>*
+**Zweck/Verantwortung**
+Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Datenzugriff der Anwendung. Es stellt die RESTful API-Schnittstellen bereit, über die das Frontend auf die Daten zugreifen kann.
 
-*\<Schnittstelle(n)>*
+**Schnittstelle(n)**
+- RESTful API-Endpunkte für die Kommunikation mit dem Frontend
+- Datenbankzugriffsschnittstelle für die Interaktion mit der MySQL-Datenbank
 
-*\<(Optional) Qualitäts-/Leistungsmerkmale>*
+**Erfüllte Anforderungen**
+- Implementierung der Geschäftslogik gemäß den Anforderungen
+- Bereitstellung von stabile und performante API-Endpunkte
 
-*\<(Optional) Ablageort/Datei(en)>*
+**Offene Punkte/Probleme/Risiken**
+- Skalierbarkeit bei steigender Last muss überwacht werden
 
-*\<(Optional) Erfüllte Anforderungen>*
+### React Frontend
 
-*\<(optional) Offene Punkte/Probleme/Risiken>*
+*\<Frontend-Template>*
 
-### \<Name Blackbox 2>
+### MySQL Datenbank
 
-*\<Blackbox-Template>*
+*\<Datenbank-Template>*
 
-### \<Name Blackbox n>
+### Docker Container
 
-*\<Blackbox-Template>*
+*\<Container-Template>*
 
-### \<Name Schnittstelle 1>
+### GitHub Actions
+
+*\<GitHub-Actions-Template>*
+
+### Artillery & Playwright Testing Tools
+
+*\<Testing-Tools-Template>*
+
+### SonarCloud Analyse
+
+*\<SonarCloud-Template>*
+
+### OpenAPI Dokumentation
+
+*\<OpenAPI-Template>*
+
+### RESTful API-Schnittstellen
 
 …
-
-### \<Name Schnittstelle m>
 
 ## Ebene 2
 
@@ -135,6 +167,7 @@ Wichtige Schnittstellen
 ### Whitebox *\<Baustein 2>*
 
 *\<Whitebox-Template>*
+
 
 …
 
