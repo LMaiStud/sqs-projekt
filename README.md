@@ -37,6 +37,8 @@ Responses:
 
 Diese Schnittstelle bietet eine einfache Möglichkeit, die aktuellen Baustellen für eine spezifische Autobahn abzurufen und die Informationen darüber zu erhalten, was die Baustellen einschränken und wie lange sie voraussichtlich dauern werden.
 
+Die API wird mittels Swagger UI dokumentiert: http://localhost:8080/swagger-ui
+
 ## Technischer Kontext
 
 UML Diagramm des Projekts:
@@ -59,7 +61,27 @@ Architektur des Projektes:
 #### Datenbank:
 * MySQL (8.3.0)
 
+#### Testing:
+* Artillery (latest)
+* Playwright (latest)
+
 # Lösungsstrategie
+Das Projekt wurde gestartet, um einen Cache für Autobahnbaustellen zu bauen. Es bezieht seine Informationen von der Bund.api.
+
+Zunächst musste eine geeignete Technologie gewählt werden. In diesem Fall boten sich Spring Boot und React an. Dabei wurde die neueste Version von Spring Boot gewählt, um von den neuesten Features und Sicherheitsupdates zu profitieren. Es wurde ein Schichtenmodell genutzt, das eine klare Trennung von Geschäftslogik, Datenzugriff und Präsentation ermöglicht. Als Datenbank wurde MySQL gewählt, da die Technologie bereits bekannt und bewährt war.
+
+Der Entwicklungsprozess begann mit der Fertigstellung des Backends. Nachdem das Backend vollständig implementiert war, wurde es gründlich getestet, unter anderem mit Postman, um die API-Endpunkte zu prüfen. Nach erfolgreichem Test des Backends wurde das Frontend entwickelt. Dieses wurde anschließend mit dem Backend integriert und gemeinsam getestet.
+
+Im Anschluss wurde das Frontend visuell verbessert und optimiert. Für die Sicherstellung der Funktionalität wurden JUnit-Tests geschrieben. Der gesamte Code wurde in einem GitHub-Repository verwaltet.
+
+Um die Anwendung unabhängig von der Umgebung laufen zu lassen, wurde sie dockerisiert. Eine Docker Compose-Datei wurde erstellt und die Anwendung lokal getestet. Nach erfolgreichem lokalen Test wurde eine GitHub Action eingerichtet, um die Anwendung kontinuierlich zu integrieren und zu deployen. Die Docker-Container wurden in GitHub abgelegt und dadurch jederzeit erreichbar gemacht.
+
+Zur Qualitätssicherung wurde Artillery für Lasttests und Playwright für End-to-End-Tests zunächst lokal eingebaut. Nach erfolgreichen lokalen Tests wurden diese auch in die GitHub Actions integriert, um automatisierte Tests bei jedem Commit durchzuführen.
+
+Zusätzlich wurde SonarCloud für die Analyse der Codequalität integriert. Alle von SonarCloud gemeldeten Probleme wurden behoben, um die Codequalität weiter zu verbessern. Am Ende wurde OpenAPI genutzt, um die API zu dokumentieren und zu beschreiben.
+
+Durch diesen strukturierten Ansatz konnte ein robuster und wartbarer Cache für Autobahnbaustellen realisiert werden, der zuverlässig Informationen von der Bund.api bezieht und für verschiedene Anwendungen bereitstellt.
+
 
 # Bausteinsicht
 
@@ -200,7 +222,39 @@ Zuordnung von Bausteinen zu Infrastruktur
 
 # Architekturentscheidungen
 
+Architekturentscheidungen
+Die Architekturentscheidungen für das Projekt wurden sorgfältig getroffen, um eine robuste und wartbare Anwendung zu gewährleisten.
+
+Technologiewahl:
+
+* Spring Boot: Es wurde die neueste Version von Spring Boot gewählt, um von den aktuellen Features und Sicherheitsupdates zu profitieren. Spring Boot ist bekannt für seine einfache Konfiguration und starke Unterstützung für die Entwicklung von Microservices.
+* React: Für das Frontend wurde React gewählt, da es eine flexible und leistungsfähige Bibliothek für die Erstellung von Benutzeroberflächen ist.
+
+Schichtenmodell:
+
+* Ein Schichtenmodell wurde genutzt, das eine klare Trennung von Präsentation, Geschäftslogik und Datenzugriff ermöglicht. Dies erhöht die Wartbarkeit und Skalierbarkeit der Anwendung.
+
+Datenbank:
+
+* MySQL: Als Datenbank wurde MySQL gewählt, da es eine bewährte Technologie ist, die bereits bekannt und zuverlässig ist.
+
+Entwicklungsprozess:
+
+* Backend-First Ansatz: Der Entwicklungsprozess begann mit der Fertigstellung des Backends, um eine stabile Basis für das gesamte System zu schaffen. Nach der Implementierung wurde das Backend gründlich getestet.
+* Frontend-Entwicklung: Nach erfolgreicher Backend-Entwicklung wurde das Frontend erstellt und anschließend integriert.
+* Testing: Um sicherzustellen, dass alle Komponenten reibungslos zusammenarbeiten, wurden umfangreiche Tests durchgeführt. Hierfür wurde unter anderem Postman für die API-Tests und JUnit für die automatisierten Tests verwendet.
+
+Deployment und Containerisierung:
+
+* Docker: Die Anwendung wurde dockerisiert, um eine konsistente Umgebung für Entwicklung, Test und Produktion zu gewährleisten.
+* Docker Compose: Zur Orchestrierung der Container wurde eine Docker Compose-Datei erstellt, die lokal getestet und anschließend in GitHub Actions integriert wurde.
+* GitHub Actions: Automatisierte CI/CD-Pipelines wurden eingerichtet, um die Anwendung kontinuierlich zu integrieren und zu deployen.
+
 # Qualitätsanforderungen
+
+* Artillery und Playwright: Für Lasttests und End-to-End-Tests wurden Artillery und Playwright verwendet, zunächst lokal und dann in die GitHub Actions integriert.
+* SonarCloud: Zur Überprüfung der Codequalität wurde SonarCloud integriert. Alle von SonarCloud gemeldeten Probleme wurden behoben, um eine hohe Codequalität sicherzustellen.
+* OpenAPI: Am Ende wurde OpenAPI genutzt, um die API umfassend zu dokumentieren und zu beschreiben, was die Verständlichkeit und Benutzbarkeit der API erhöht.
 
 <div class="formalpara-title">
 
@@ -221,5 +275,16 @@ der online-Dokumentation (auf Englisch!).
 
 | Begriff        | Definition        |
 |----------------|-------------------|
-| *\<Begriff-1>* | *\<Definition-1>* |
-| *\<Begriff-2*  | *\<Definition-2>* |
+| *Spring Boot*  | *Eine Java-basierte Open-Source-Framework, das die schnelle Entwicklung von Produktions- bereiten Anwendungen ermöglicht. Die neueste Version wurde für dieses Projekt verwendet.* |
+| *React*        | *Eine JavaScript-Bibliothek zur Erstellung von Benutzeroberflächen, die für das Frontend dieses Projekts ausgewählt wurde.* |
+| *Schichtenmodell* | *Ein Architekturmuster, das eine klare Trennung von Präsentation, Geschäftslogik und Datenzugriff ermöglicht, um die Wartbarkeit und Skalierbarkeit der Anwendung zu verbessern.* |
+| *MySQL*        | *Ein relationales Datenbankmanagementsystem, das für dieses Projekt als Datenbank ausgewählt wurde, aufgrund seiner Bekanntheit und Zuverlässigkeit.* |
+| *Backend-First Ansatz* | *Ein Entwicklungsansatz, bei dem zuerst das Backend einer Anwendung entwickelt wird, um eine stabile Basis für das gesamte System zu schaffen.* |
+| *Testing*      | *Der Prozess des Überprüfens der Funktionalität und Qualität der Anwendung, der unter anderem mit Postman für API-Tests und JUnit für automatisierte Tests durchgeführt wurde.* |
+| *Docker*       | *Eine Plattform zur Containerisierung von Anwendungen, die für dieses Projekt genutzt wurde, um eine konsistente Umgebung für Entwicklung, Test und Produktion zu gewährleisten.* |
+| *Docker Compose* | *Ein Tool zur Definition und Ausführung von Docker-Anwendungen, das für die Orchestrierung der Container in diesem Projekt verwendet wurde.* |
+| *GitHub Actions* | *Ein Feature von GitHub, das automatisierte Workflows ermöglicht, die für dieses Projekt für Continuous Integration und Deployment verwendet wurden.* |
+| *Qualitätssicherung* | *Der Prozess der Sicherstellung, dass die Anwendung den Anforderungen entspricht und von hoher Qualität ist, der unter anderem mit Artillery und Playwright für Lasttests und End-to-End-Tests durchgeführt wurde.* |
+| *SonarCloud*   | *Ein Tool zur Analyse der Codequalität, das in dieses Projekt integriert wurde, um die Codequalität kontinuierlich zu überwachen und zu verbessern.* |
+| *OpenAPI*      | *Eine Spezifikation zur Beschreibung von RESTful APIs, die für dieses Projekt genutzt wurde, um die API umfassend zu dokumentieren und zu beschreiben.* |
+
