@@ -52,14 +52,15 @@ jobs:
           cache: maven
 
       - name: Build backend with Maven
-        run: mvn -B package --file backend/pom.xml
+        run: mvn -B clean test package --file backend/pom.xml
 
       - name: Run SonarCloud Analysis for Backend
         working-directory: backend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=sqsprojekt_backend -Dsonar.organization=sqsprojekt -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=sqsprojekt_backend -Dsonar.organization=sqsprojekt -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=${{ secrets.SONAR_TOKEN }} -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+
         
       - name: Build frontend with npm
         working-directory: frontend
