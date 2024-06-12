@@ -8,8 +8,8 @@ services:
     container_name: sqs_db
     image: mysql:latest
     environment:
-      MYSQL_DATABASE: data
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+      MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
     ports:
       - "3306:3306"
     volumes:
