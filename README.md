@@ -135,9 +135,20 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ![image](https://github.com/LMaiStud/sqs/assets/163861902/47fa68ad-f9d9-49be-a75f-61038ac99d1f)
 
-### Docker Container
+### Docker Compose
 
-*\<Container-Template>*
+[*\<Container-Compose>*](https://github.com/LMaiStud/sqs/blob/main/docker-compose.yml)
+
+    +-----------------+           +-----------------+           +-----------------------------+  
+    |                 |           |                 |           |                             |  
+    |       db        |---------->|    backend      |---------->|    frontend                 |  
+    |  MySQL:latest   |           |  sqs_backend    |           |  sqs_frontend               |  
+    |  Port: 3306     |           |  Ports: 8080,   |           |  Port: 80                   |  
+    |  Volumes:       |           |         5005    |           |  Build context: ./frontend  |  
+    |  mysql_data     |           |  Depends on: db |           |  Dockerfile: Dockerfile     |  
+    |                 |           |                 |           |  Depends on: backend        |  
+    |                 |           |                 |           |                             |  
+    +-----------------+           +-----------------+           +-----------------------------+  
 
 ### GitHub Actions
 
