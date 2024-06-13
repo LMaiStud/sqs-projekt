@@ -87,7 +87,8 @@ Durch diesen strukturierten Ansatz konnte ein robuster und wartbarer Cache für 
 
 ## Whitebox Gesamtsystem
 
-***\<Übersichtsdiagramm>***
+Architektur des Projektes:
+![ARK](https://github.com/LMaiStud/sqs/blob/main/doc/images/Architektur.drawio.png)
 
 Begründung  
 *Das Gesamtsystem besteht aus mehreren miteinander verbundenen Komponenten, die gemeinsam den Cache für Autobahnbaustellen bilden. Dieses Übersichtsdiagramm bietet einen Überblick über die Interaktionen und Abhängigkeiten zwischen den einzelnen Bausteinen.*
@@ -132,7 +133,7 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ### MySQL Datenbank
 
-*\<Datenbank-Template>*
+![image](https://github.com/LMaiStud/sqs/assets/163861902/47fa68ad-f9d9-49be-a75f-61038ac99d1f)
 
 ### Docker Container
 
@@ -140,11 +141,13 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ### GitHub Actions
 
-*\<GitHub-Actions-Template>*
+[*\<GitHub-Actions-file>*](https://github.com/LMaiStud/sqs/blob/main/.github/workflows/maven.yml)
 
 ### Artillery & Playwright Testing Tools
 
-*\<Testing-Tools-Template>*
+[*\<Artillery-Template>*](https://github.com/LMaiStud/sqs/blob/main/artillery-tests/artillery.yml)
+
+[*\<Playwright-End-to-End-Test>*](https://github.com/LMaiStud/sqs/blob/main/playwright/tests/landingPage.spec.js)
 
 ### SonarCloud Analyse
 
@@ -152,42 +155,7 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ### OpenAPI Dokumentation
 
-*\<OpenAPI-Template>*
-
-### RESTful API-Schnittstellen
-
-…
-
-## Ebene 2
-
-### Whitebox *\<Baustein 1>*
-
-*\<Whitebox-Template>*
-
-### Whitebox *\<Baustein 2>*
-
-*\<Whitebox-Template>*
-
-
-…
-
-### Whitebox *\<Baustein m>*
-
-*\<Whitebox-Template>*
-
-## Ebene 3
-
-### Whitebox \<\_Baustein x.1\_\>
-
-*\<Whitebox-Template>*
-
-### Whitebox \<\_Baustein x.2\_\>
-
-*\<Whitebox-Template>*
-
-### Whitebox \<\_Baustein y.1\_\>
-
-*\<Whitebox-Template>*
+[*\<OpenAPI-Template>*](http://localhost:8080/swagger-ui)
 
 # Laufzeitsicht
 
