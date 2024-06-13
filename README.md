@@ -154,6 +154,25 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 [*\<GitHub-Actions-file>*](https://github.com/LMaiStud/sqs/blob/main/.github/workflows/maven.yml)
 
+
+    +------------------------------+             +-----------------------------------+
+    |                              |             |                                   |
+    |       lint-dockerfiles       |------------>| Build-Frontend-and-Backend-and-   |
+    |   - Lint Backend Dockerfile  |             | push-imges                        |
+    |   - Lint Frontend Dockerfile |             |   - Build backend with Maven      |
+    |                              |             |   - Build frontend with npm       |
+    |                              |             |   - Push Docker images            |
+    +------------------------------+             +-----------------------------------+
+                                                        |              |
+                                                        V              V
+                                             +-------------------+  +-------------------+
+                                             |                   |  |                   |
+                                             |   Artillery-Test  |  | End-To-End-Test-  |
+                                             |   - Run tests     |  | Frontend-Test     |
+                                             |                   |  | - Run tests       |
+                                             +-------------------+  +-------------------+
+
+
 ### Artillery & Playwright Testing Tools
 
 [*\<Artillery-Template>*](https://github.com/LMaiStud/sqs/blob/main/artillery-tests/artillery.yml)
