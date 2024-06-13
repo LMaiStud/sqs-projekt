@@ -151,7 +151,7 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ### SonarCloud Analyse
 
-*\<SonarCloud-Template>*
+[*\<SonarCloud-Link>*](https://sonarcloud.io/organizations/sqsprojekt/projects)
 
 ### OpenAPI Dokumentation
 
