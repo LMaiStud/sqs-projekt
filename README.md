@@ -210,27 +210,23 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 ### Laufzeitdiagramm
 
 
-sequenceDiagram
-    participant Benutzer
-    participant Frontend
-    participant Backend
-    participant Cache
-    participant API_Bund
-    participant Datenbank
+    Benutzer            Frontend             Backend            Cache             API des Bundes          Datenbank
+       |                   |                    |                  |                     |                                    |
+       |---Autobahnkennung eingeben------------>|                  |                     |                                    |
+       |                   |---HTTP GET /A99/services/roadworks--->|                     |                                    |
+       |                   |                    |---Überprüfung des Caches-------------->|                                    |
+       |                   |                    |                  |<---Cache-Hit---     |                                    |
+       |                   |                    |                  |       oder          |                                    |
+       |                   |                    |                  |---Cache-Miss----    |                                    |
+       |                   |                    |---HTTP GET /A99/services/roadworks---->|                                    |             
+       |                   |                    |                  |                     |---Baustelleninformationen (JSON)-->|
+       |                   |                    |                  |<-----------------Baustelleninformationen-----------------|
+       |                   |                    |<---Speichern der Daten im Cache------->|                                    |
+       |                   |                    |<---Speichern der Daten in MySQL------->|                                    |
+       |                   |                    |<---Baustelleninformationen-------------|                                    |
+       |                   |<---Anzeige der Baustelleninformationen----------------------|                                    |
+       |                   |                    |                  |                     |                                    | 
 
-    Benutzer->>Frontend: Autobahnkennung eingeben
-    Frontend->>Backend: HTTP GET /A99/services/roadworks
-    Backend->>Cache: Überprüfen ob Daten im Cache vorhanden
-    alt Cache-Hit
-        Cache-->>Backend: Baustelleninformationen
-    else Cache-Miss
-        Backend->>API_Bund: HTTP GET /A99/services/roadworks
-        API_Bund-->>Backend: Baustelleninformationen (JSON)
-        Backend->>Cache: Speichern der Daten im Cache
-        Backend->>Datenbank: Speichern der Daten in MySQL
-    end
-    Backend-->>Frontend: Baustelleninformationen
-    Frontend-->>Benutzer: Anzeige der Baustelleninformationen
 
 
 -   \<hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
