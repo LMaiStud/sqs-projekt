@@ -229,18 +229,36 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 
 
--   \<hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
 
--   \<hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem
-    Szenario erläutern>
+### Szenario 2: Fehlgeschlagener Abruf von Baustelleninformationen (falsche Autobahnkennung)
 
-## *\<Bezeichnung Laufzeitszenario 2>*
+#### Ablaufbeschreibung
 
-…
+1. **Benutzeranfrage im Frontend**: Ein Benutzer navigiert auf der React-basierten Webanwendung und gibt eine falsche oder nicht existierende Autobahnkennung (z.B. "A999") ein, um die aktuellen Baustelleninformationen abzurufen.
+2. **Anfrage an das Backend**: Das Frontend sendet eine HTTP GET-Anfrage an das Spring Boot Backend. Der Endpunkt ist `/A999/services/roadworks`.
+3. **Überprüfung des Caches im Backend**: Das Backend prüft, ob die Baustelleninformationen für die angefragte Autobahn im Cache vorhanden sind.
+   - **Cache-Miss**: Da die Autobahnkennung nicht existiert, wird keine Information im Cache gefunden.
+4. **Anfrage an die API des Bundes**: Das Backend sendet eine HTTP GET-Anfrage an den entsprechenden Endpunkt der API des Bundes, um die Baustelleninformationen für die angefragte Autobahn abzurufen.
+5. **Fehlerantwort von der API des Bundes**: Die API des Bundes liefert eine Fehlerantwort zurück:
+   - **404 Not Found**: Die angeforderte Ressource (Baustelleninformationen für "A999") wurde nicht gefunden.
+6. **Antwort an das Frontend**: Das Backend sendet eine Fehlerantwort an das Frontend, um den Benutzer über den Fehler zu informieren.
+7. **Anzeige der Fehlermeldung**: Das Frontend zeigt eine entsprechende Fehlermeldung dem Benutzer an, z.B. "Die angegebene Autobahnkennung wurde nicht gefunden."
 
-## *\<Bezeichnung Laufzeitszenario n>*
+#### Laufzeitdiagramm
 
-…
+    Benutzer            Frontend             Backend            Cache             API des Bundes
+       |                   |                    |                  |                     |
+       |---Autobahnkennung eingeben------------>|                  |                     |
+       |                   |---HTTP GET /A999/services/roadworks-->|                     |
+       |                   |                    |---Überprüfung des Caches-------------->|
+       |                   |                    |                  |<---Cache-Miss-------|
+       |                   |                    |---HTTP GET /A999/services/roadworks--->|
+       |                   |                    |                  |                     |
+       |                   |                    |<-----------------Fehlerantwort---------|
+       |                   |<---Fehlerantwort----------------------|                     |
+       |<---Anzeige der Fehlermeldung------------------------------|                     |
+       |                   |                    |                  |                     |
+
 
 # Verteilungssicht
 
