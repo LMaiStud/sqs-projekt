@@ -18,7 +18,7 @@ services:
   backend:
     restart: unless-stopped
     container_name: sqs_backend
-    image: ghcr.io/lmaistud/sqs/sqs_backend:latest  # Verwenden Sie das Image aus GitHub Container Registry
+    image: ghcr.io/lmaistud/sqs/sqs_backend:latest
     environment:
       - DB_HOST=db
       - JAVA_DEBUG=true
