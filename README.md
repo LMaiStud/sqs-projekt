@@ -191,6 +191,48 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ## *\<Bezeichnung Laufzeitszenario 1>*
 
+# Laufzeitsicht
+
+## Szenario 1: Abruf von Baustelleninformationen für eine spezifische Autobahn
+
+### Ablaufbeschreibung
+
+1. **Benutzeranfrage im Frontend**: Ein Benutzer navigiert auf der React-basierten Webanwendung und gibt eine spezifische Autobahnkennung (z.B. "A99") ein, um die aktuellen Baustelleninformationen abzurufen.
+2. **Anfrage an das Backend**: Das Frontend sendet eine HTTP GET-Anfrage an das Spring Boot Backend. Der Endpunkt ist `/A99/services/roadworks`.
+3. **Überprüfung des Caches im Backend**: Das Backend prüft, ob die Baustelleninformationen für die angefragte Autobahn bereits im Cache vorhanden sind.
+   - **Cache-Hit**: Wenn die Informationen im Cache vorhanden sind, werden diese direkt aus dem Cache an das Frontend zurückgesendet.
+   - **Cache-Miss**: Wenn die Informationen nicht im Cache vorhanden sind, wird eine Anfrage an die API des Bundes gesendet.
+4. **Anfrage an die API des Bundes**: Das Backend sendet eine HTTP GET-Anfrage an den Endpunkt der API des Bundes, um die Baustelleninformationen für die angefragte Autobahn abzurufen.
+5. **Empfang und Speicherung der Daten**: Die API des Bundes liefert die Daten im JSON-Format zurück. Das Backend speichert diese Daten im Cache und in der MySQL-Datenbank.
+6. **Antwort an das Frontend**: Das Backend sendet die Baustelleninformationen zurück an das Frontend.
+7. **Anzeige der Daten**: Das Frontend zeigt die erhaltenen Baustelleninformationen dem Benutzer an.
+
+### Laufzeitdiagramm
+
+
+sequenceDiagram
+    participant Benutzer
+    participant Frontend
+    participant Backend
+    participant Cache
+    participant API_Bund
+    participant Datenbank
+
+    Benutzer->>Frontend: Autobahnkennung eingeben
+    Frontend->>Backend: HTTP GET /A99/services/roadworks
+    Backend->>Cache: Überprüfen ob Daten im Cache vorhanden
+    alt Cache-Hit
+        Cache-->>Backend: Baustelleninformationen
+    else Cache-Miss
+        Backend->>API_Bund: HTTP GET /A99/services/roadworks
+        API_Bund-->>Backend: Baustelleninformationen (JSON)
+        Backend->>Cache: Speichern der Daten im Cache
+        Backend->>Datenbank: Speichern der Daten in MySQL
+    end
+    Backend-->>Frontend: Baustelleninformationen
+    Frontend-->>Benutzer: Anzeige der Baustelleninformationen
+
+
 -   \<hier Laufzeitdiagramm oder Ablaufbeschreibung einfügen>
 
 -   \<hier Besonderheiten bei dem Zusammenspiel der Bausteine in diesem
