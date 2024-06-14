@@ -14,6 +14,12 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s  # Verkürzte Intervallzeit
+      timeout: 5s  # Verkürzte Timeoutzeit
+      retries: 3  # Weniger Wiederholungen
+      start_period: 10s  # Kürzere Startperiode
 
   backend:
     restart: unless-stopped
@@ -28,7 +34,8 @@ services:
       - "8080:8080"
       - "5005:5005"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   frontend:
     restart: unless-stopped
