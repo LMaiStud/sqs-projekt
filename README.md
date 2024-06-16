@@ -374,4 +374,3 @@ der online-Dokumentation (auf Englisch!).
 | *Qualitätssicherung* | *Der Prozess der Sicherstellung, dass die Anwendung den Anforderungen entspricht und von hoher Qualität ist, der unter anderem mit Artillery und Playwright für Lasttests und End-to-End-Tests durchgeführt wurde.* |
 | *SonarCloud*   | *Ein Tool zur Analyse der Codequalität, das in dieses Projekt integriert wurde, um die Codequalität kontinuierlich zu überwachen und zu verbessern.* |
 | *OpenAPI*      | *Eine Spezifikation zur Beschreibung von RESTful APIs, die für dieses Projekt genutzt wurde, um die API umfassend zu dokumentieren und zu beschreiben.* |
-
