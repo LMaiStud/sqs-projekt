@@ -59,7 +59,7 @@ Architektur des Projektes:
 * Material UI components
 
 #### Datenbank:
-* MySQL (8.3.0)
+* MySQL (8.3.0) 
 
 #### Testing:
 * Artillery (latest)
