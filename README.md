@@ -6,6 +6,13 @@ In meinem Projekt habe ich das Ziel, die Effizienz der API-Nutzung zu verbessern
 
 ## Qualitätsziele
 
+| Qualitätskriterium | Beschreibung | Ziele | Maßnahmen |
+|---------------------|---------------|-------|-----------|
+| **1. Reliability - Zuverlässigkeit** | Die Fähigkeit der Anwendung, auch bei unerwarteten Eingaben und hoher Belastung stabil und fehlerfrei zu funktionieren. | - Zuverlässige Verarbeitung von Benutzereingaben<br>- Hohe Stabilität bei intensiver Nutzung | - Umfangreiche Testabdeckung mit Unit-Tests<br>- Lasttests mit Artillery<br>- Integrationstest|
+| **2. Portability - Übertragbarkeit** | Flexibilität der Anwendung in Bezug auf die Laufzeitumgebung. |- Externe Abhängigkeiten verringern<br>- Ressourcen effizient nutzen<br>-Browserunabhängige Nutzbarkeit | - Containerisierung mithilfe von Docker zur Isolierung der Laufzeitumgebungen sowie Sicherstellung der Plattformunabhängigkeit<br>- Docker-Compose-Datei zum Starten der Services<br>- End-to-End-Tests mit Playwright |
+| **3. Usability - Benutzerfreundlichkeit** | Einfache Interaktion mit der Benutzeroberfläche. | - Simple Bedienung<br>- Übersichtliche Weboberfläche | - End-to-End-Tests mit Playwright<br>- UI-Tests |
+
+
 ## Stakeholder
 
 | Rolle        | Kontakt        | Erwartungshaltung |
