@@ -1,3 +1,33 @@
+# Autobahnbaustellenauskunft
+
+**Software-Qualitätssicherung SoSe 2024**
+
+## Setup
+
+### Voraussetzungen
+* Git
+* Docker
+
+### Anwendung klonen
+Das Repository von folgendem Link klonen:
+```
+git clone https://github.com/LMaiStud/sqs.git
+cd sqs
+```
+
+### Projekt mit Docker Compose starten
+```
+docker-compose up
+```
+
+
+### Anwendung aufrufen
+Sobald Backend und Frontend gestartet sind, ist die Oberfläche unter `http://localhost:80` verfügbar.
+
+---
+
+Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
+
 # Inhaltsverzeichnis
 1. [Einführung und Ziele](#einführung-und-ziele)
     1. [Aufgabenstellung](#aufgabenstellung)
