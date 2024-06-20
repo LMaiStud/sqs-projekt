@@ -447,7 +447,7 @@ Zuordnung von Bausteinen zu Infrastruktur
 
 # Querschnittliche Konzepte
 
-UML Diagramm des Projekts:
+## UML Diagramm des Backends:
 ![UML](https://github.com/LMaiStud/sqs/blob/main/doc/images/uml_digram.drawio%20(1).png)
 
 # Architekturentscheidungen
