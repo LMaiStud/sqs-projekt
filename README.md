@@ -110,9 +110,6 @@ Die API wird mittels Swagger UI dokumentiert: http://localhost:8080/swagger-ui
 
 ## Technischer Kontext
 
-UML Diagramm des Projekts:
-![UML](https://github.com/LMaiStud/sqs/blob/main/doc/images/uml_digram.drawio%20(1).png)
-
 Architektur des Projektes:
 ![ARK](https://github.com/LMaiStud/sqs/blob/main/doc/images/Architektur.drawio.png)
 
@@ -450,19 +447,8 @@ Zuordnung von Bausteinen zu Infrastruktur
 
 # Querschnittliche Konzepte
 
-## *\<Konzept 1>*
-
-*\<Erklärung>*
-
-## *\<Konzept 2>*
-
-*\<Erklärung>*
-
-…
-
-## *\<Konzept n>*
-
-*\<Erklärung>*
+UML Diagramm des Projekts:
+![UML](https://github.com/LMaiStud/sqs/blob/main/doc/images/uml_digram.drawio%20(1).png)
 
 # Architekturentscheidungen
 
