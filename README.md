@@ -1,8 +1,8 @@
 # Inhaltsverzeichnis
 1. [Einführung und Ziele](#einführung-und-ziele)
-2. [Aufgabenstellung](#aufgabenstellung)
-3. [Qualitätsziele](#qualitätsziele)
-4. [Stakeholder](#stakeholder)
+    1. [Aufgabenstellung](#aufgabenstellung)
+    2. [Qualitätsziele](#qualitätsziele)
+    3. [Stakeholder](#stakeholder)
 5. [Randbedingungen](#randbedingungen)
 6. [Kontextabgrenzung](#kontextabgrenzung)
     1. [Fachlicher Kontext](#fachlicher-kontext)
@@ -37,6 +37,8 @@ In meinem Projekt habe ich das Ziel, die Effizienz der API-Nutzung zu verbessern
 
 ## Aufgabenstellung
 
+Die Aufgabenstellung wurde durch dieses [Tafelbild](https://github.com/LMaiStud/sqs/blob/main/doc/images/Tafelbild.png) erläutert. Im Grunde handelt es sich um ein Projekt mit Frontend und Backend. Ein Vorschlag des Dozenten war, eine Art Cache zu bauen. Dabei werden Daten von einer externen API abgerufen, zwischengespeichert in einer Datenbank und über eine Schnittstelle am Backend ausgegeben. Das Ergebnis soll im Frontend angezeigt werden. Das Frontend muss nur die grundlegenden Funktionen erfüllen; alle weiteren optischen Erweiterungen sind optional.
+
 ## Qualitätsziele
 
 | Qualitätskriterium | Beschreibung | Ziele | Maßnahmen |
@@ -54,6 +56,27 @@ In meinem Projekt habe ich das Ziel, die Effizienz der API-Nutzung zu verbessern
 | Trainer | Reimer, Mario-Leander (mario-leander.reimer@th-rosenheim.de) | "Will ein noch besseres Prjekt sehen!"  |
 
 # Randbedingungen
+
+## Technische Randbedingungen
+Programmiersprachen und Frameworks:
+
+* Backend: Spring Boot (Java 17)
+* Frontend: React mit VITE
+* Datenbank: MySQL
+
+Festgelegte Regeln:
+* Nutzung von GitHub als Code-Repository
+* Verwendung von SonarCloud
+* 100% Testabdeckung im Backend
+* Dokumentation im Format arc4
+
+
+## Organisatorische Randbedinungen
+Das Projekt wurde in Einzelarbeit durchgeführt. Zur Hilfe stand der Dozent bei allen Übungen während des Semesters zur Verfügung. Die Dauer des Projekts betrug ein Semester. Die Abgabe war am 23.06.2024.
+
+Das Projekt muss öffentlich in einem GitHub-Repository bereitgestellt werden. Andere Git-Plattformen waren nicht erlaubt. Daher ergab sich die Notwendigkeit zur Nutzung von GitHub Actions. Zudem war SonarCloud zur Sicherstellung der Codequalität vorgeschrieben. Für die Dokumentation musste das Format arc42 verwendet werden.
+
+## Konventionen
 
 # Kontextabgrenzung
 
