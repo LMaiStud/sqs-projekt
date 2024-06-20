@@ -24,7 +24,7 @@ services:
   backend:
     restart: unless-stopped
     container_name: sqs_backend
-    image: ghcr.io/lmaistud/sqs/sqs_backend:latest
+    image: ghcr.io/lmaistud/sqs-projekt/sqs_backend:latest
     environment:
       - DB_HOST=db
       - JAVA_DEBUG=true
@@ -40,7 +40,7 @@ services:
   frontend:
     restart: unless-stopped
     container_name: sqs_frontend
-    image: ghcr.io/lmaistud/sqs/sqs_frontend:latest
+    image: ghcr.io/lmaistud/sqs-projekt/sqs_frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile
