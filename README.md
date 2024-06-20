@@ -4,7 +4,7 @@
     2. [Qualitätsziele](#qualitätsziele)
     3. [Stakeholder](#stakeholder)
 5. [Randbedingungen](#randbedingungen)
-    1. [Technische Randbedingungen](#technische-tandbedingungen)
+    1. [Technische Randbedingungen](#technische-randbedingungen)
     2. [Organisatorische Randbedinungen](#organisatorische-randbedinungen)
 7. [Kontextabgrenzung](#kontextabgrenzung)
     1. [Fachlicher Kontext](#fachlicher-kontext)
