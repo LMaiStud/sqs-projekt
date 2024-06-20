@@ -365,6 +365,53 @@ der online-Dokumentation (auf Englisch!).
 
 # Risiken und technische Schulden
 
+## Risiken
+
+1. **Skalierbarkeit**  
+   **Beschreibung:** Die Anwendung muss in der Lage sein, mit einer steigenden Anzahl von Anfragen umzugehen. Bei unzureichender Skalierung kann die Performance leiden, was zu längeren Antwortzeiten oder sogar Ausfällen führen kann.  
+   **Maßnahmen:**
+   - **Lasttests:** Regelmäßige Durchführung von Lasttests mit Artillery, um die Belastungsgrenzen zu identifizieren und zu beheben.
+   - **Monitoring:** Implementierung eines Monitoring-Systems, um die Performance und Auslastung der Anwendung kontinuierlich zu überwachen.
+
+2. **Cache-Konsistenz**  
+   **Beschreibung:** Der Cache muss stets aktuelle und konsistente Daten bereitstellen. Ungenauigkeiten im Cache können zu veralteten oder falschen Informationen führen.  
+   **Maßnahmen:**
+   - **Cache-Invalidierung:** Implementierung einer effizienten Cache-Invalidierungsstrategie, um sicherzustellen, dass der Cache regelmäßig aktualisiert wird.
+   - **Überwachung und Protokollierung:** Einführung von Protokollierungsmechanismen, um die Konsistenz des Caches zu überwachen und Abweichungen frühzeitig zu erkennen.
+
+3. **Abhängigkeit von der API des Bundes**  
+   **Beschreibung:** Die Anwendung ist stark auf die Verfügbarkeit und Zuverlässigkeit der API des Bundes angewiesen. Ausfälle oder Änderungen an der API können die Funktionalität der Anwendung beeinträchtigen.  
+   **Maßnahmen:**
+   - **Fallback-Strategien:** Implementierung von Fallback-Strategien, wie z.B. die Nutzung einer lokalen Datenkopie oder alternative Datenquellen, um die Funktionalität bei einem API-Ausfall aufrechtzuerhalten.
+   - **API-Überwachung:** Kontinuierliche Überwachung der API des Bundes, um Ausfälle oder Änderungen frühzeitig zu erkennen und entsprechende Maßnahmen zu ergreifen.
+
+4. **Sicherheitsrisiken**  
+   **Beschreibung:** Die Anwendung muss vor potenziellen Sicherheitsbedrohungen geschützt werden, einschließlich SQL-Injection, Cross-Site Scripting (XSS) und unberechtigtem Datenzugriff.  
+   **Maßnahmen:**
+   - **Sicherheitsprüfungen:** Regelmäßige Durchführung von Sicherheitsprüfungen und Penetrationstests.
+   - **Sicherheitsupdates:** Kontinuierliche Aktualisierung aller verwendeten Bibliotheken und Frameworks, um bekannte Sicherheitslücken zu schließen.
+
+## Technische Schulden
+
+1. **Unvollständige Tests**  
+   **Beschreibung:** Einige Teile der Anwendung sind möglicherweise nicht vollständig durch Tests abgedeckt, was das Risiko von unentdeckten Fehlern erhöht.  
+   **Maßnahmen:**
+   - **Testabdeckung erhöhen:** Erweiterung der Testabdeckung durch Hinzufügen von mehr Unit-Tests, Integrationstests und End-to-End-Tests.
+   - **Testautomatisierung:** Nutzung von CI/CD-Pipelines, um Tests bei jedem Commit automatisch auszuführen und sicherzustellen, dass keine neuen Fehler eingeführt werden.
+
+2. **Veraltete Technologien**  
+   **Beschreibung:** Die Verwendung von veralteten Versionen von Bibliotheken oder Frameworks kann zu Sicherheitslücken und Inkompatibilitäten führen.  
+   **Maßnahmen:**
+   - **Regelmäßige Aktualisierungen:** Planmäßige Aktualisierung aller Bibliotheken und Frameworks auf ihre neuesten stabilen Versionen.
+   - **Kompatibilitätstests:** Durchführung von Kompatibilitätstests nach jeder Aktualisierung, um sicherzustellen, dass die Anwendung weiterhin einwandfrei funktioniert.
+
+3. **Unzureichende Dokumentation**  
+   **Beschreibung:** Eine unzureichende Dokumentation kann die Wartbarkeit der Anwendung erschweren und die Einarbeitung neuer Entwickler behindern.  
+   **Maßnahmen:**
+   - **Dokumentation erweitern:** Erstellung und Pflege einer umfassenden Dokumentation für alle Komponenten der Anwendung.
+   - **Onboarding-Prozess:** Entwicklung eines strukturierten Onboarding-Prozesses für neue Entwickler, der eine schnelle Einarbeitung ermöglicht.
+
+
 # Glossar
 
 | Begriff        | Definition        |
