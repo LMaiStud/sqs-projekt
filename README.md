@@ -163,7 +163,6 @@ Der Benutzer ruft über die Autobahnauskunft die Baustelleninformationen ab. Fal
 
 ## Whitebox Gesamtsystem
 
-Architektur des Projektes:
 ![ARK](https://github.com/LMaiStud/sqs/blob/main/doc/images/Architektur.drawio.png)
 
 Begründung  
@@ -348,10 +347,6 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 ### OpenAPI Dokumentation
 
 [*\<OpenAPI-Template>*](http://localhost:8080/swagger-ui)
-
-# Laufzeitsicht
-
-## *\<Bezeichnung Laufzeitszenario 1>*
 
 # Laufzeitsicht
 
