@@ -81,6 +81,8 @@ Das Projekt muss öffentlich in einem GitHub-Repository bereitgestellt werden. A
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
+![Fachlicher Kontext](https://github.com/LMaiStud/sqs/blob/main/doc/images/Fachlicher%20Kontext.png)
+Der Benutzer ruft über die Autobahnauskunft die Baustelleninformationen ab. Falls die Baustelle bereits in der Datenbank vorhanden ist, wird sie von dort ausgegeben. Ist sie nicht vorhanden, wird sie von der externen API abgerufen.
 
 ### Externe Schnittstelle Autobahn App API
 Die Schnittstelle ermöglicht es, eine Liste der aktuellen Baustellen für eine bestimmte Autobahn abzurufen.
