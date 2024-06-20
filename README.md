@@ -5,8 +5,8 @@
 ## Setup
 
 ### Voraussetzungen
-* Git
-* Docker
+* [Git](https://git-scm.com/downloads)
+* [Docker](https://www.docker.com/products/docker-desktop/)
 
 ### Anwendung klonen
 Das Repository von folgendem Link klonen:
