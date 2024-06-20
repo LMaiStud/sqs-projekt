@@ -82,6 +82,7 @@ Das Projekt muss öffentlich in einem GitHub-Repository bereitgestellt werden. A
 
 ## Fachlicher Kontext
 ![Fachlicher Kontext](https://github.com/LMaiStud/sqs/blob/main/doc/images/Fachlicher%20Kontext.png)
+
 Der Benutzer ruft über die Autobahnauskunft die Baustelleninformationen ab. Falls die Baustelle bereits in der Datenbank vorhanden ist, wird sie von dort ausgegeben. Ist sie nicht vorhanden, wird sie von der externen API abgerufen.
 
 ### Externe Schnittstelle Autobahn App API
@@ -112,7 +113,7 @@ UML Diagramm des Projekts:
 Architektur des Projektes:
 ![ARK](https://github.com/LMaiStud/sqs/blob/main/doc/images/Architektur.drawio.png)
 
-### Technische Eigenschaften
+## Technische Eigenschaften
 
 #### Backend:
 * Spring Boot Server (v3.2.3)
@@ -146,6 +147,13 @@ Zur Qualitätssicherung wurde Artillery für Lasttests und Playwright für End-t
 Zusätzlich wurde SonarCloud für die Analyse der Codequalität integriert. Alle von SonarCloud gemeldeten Probleme wurden behoben, um die Codequalität weiter zu verbessern. Am Ende wurde OpenAPI genutzt, um die API zu dokumentieren und zu beschreiben.
 
 Durch diesen strukturierten Ansatz konnte ein robuster und wartbarer Cache für Autobahnbaustellen realisiert werden, der zuverlässig Informationen von der Bund.api bezieht und für verschiedene Anwendungen bereitstellt.
+
+
+Der Benutzer ruft über die Autobahnauskunft die Baustelleninformationen ab. Falls die Baustelle bereits in der Datenbank vorhanden ist, wird sie von dort ausgegeben. Ist sie nicht vorhanden, wird sie von der externen API abgerufen.
+
+
+
+
 
 
 # Bausteinsicht
