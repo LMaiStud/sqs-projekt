@@ -37,6 +37,8 @@ In meinem Projekt habe ich das Ziel, die Effizienz der API-Nutzung zu verbessern
 
 ## Aufgabenstellung
 
+Die Aufgabenstellung wurde durch dieses [Tafelbild](https://github.com/LMaiStud/sqs/blob/main/doc/images/Tafelbild.png) erläutert. Im Grunde handelt es sich um ein Projekt mit Frontend und Backend. Ein Vorschlag des Dozenten war, eine Art Cache zu bauen. Dabei werden Daten von einer externen API abgerufen, zwischengespeichert in einer Datenbank und über eine Schnittstelle am Backend ausgegeben. Das Ergebnis soll im Frontend angezeigt werden. Das Frontend muss nur die grundlegenden Funktionen erfüllen; alle weiteren optischen Erweiterungen sind optional.
+
 ## Qualitätsziele
 
 | Qualitätskriterium | Beschreibung | Ziele | Maßnahmen |
