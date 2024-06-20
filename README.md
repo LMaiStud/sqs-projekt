@@ -320,61 +320,6 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 *\<Frontend-Template>*
 
-### MySQL Datenbank
-
-![image](https://github.com/LMaiStud/sqs/assets/163861902/47fa68ad-f9d9-49be-a75f-61038ac99d1f)
-
-### Docker Compose
-
-[*\<Container-Compose>*](https://github.com/LMaiStud/sqs/blob/main/docker-compose.yml)
-
-    +-----------------+           +-----------------+           +-----------------------------+  
-    |                 |           |                 |           |                             |  
-    |       db        |---------->|    backend      |---------->|    frontend                 |  
-    |  MySQL:latest   |           |  sqs_backend    |           |  sqs_frontend               |  
-    |  Port: 3306     |           |  Ports: 8080,   |           |  Port: 80                   |  
-    |  Volumes:       |           |         5005    |           |  Build context: ./frontend  |  
-    |  mysql_data     |           |  Depends on: db |           |  Dockerfile: Dockerfile     |  
-    |                 |           |                 |           |  Depends on: backend        |  
-    |                 |           |                 |           |                             |  
-    +-----------------+           +-----------------+           +-----------------------------+  
-
-### GitHub Actions
-
-[*\<GitHub-Actions-file>*](https://github.com/LMaiStud/sqs/blob/main/.github/workflows/maven.yml)
-
-
-    +------------------------------+             +-----------------------------------+
-    |                              |             |                                   |
-    |       lint-dockerfiles       |------------>| Build-Frontend-and-Backend-and-   |
-    |   - Lint Backend Dockerfile  |             | push-imges                        |
-    |   - Lint Frontend Dockerfile |             |   - Build backend with Maven      |
-    |                              |             |   - Build frontend with npm       |
-    |                              |             |   - Push Docker images            |
-    +------------------------------+             +-----------------------------------+
-                                                        |              |
-                                                        V              V
-                                             +-------------------+  +-------------------+
-                                             |                   |  |                   |
-                                             |   Artillery-Test  |  | End-To-End-Test-  |
-                                             |   - Run tests     |  | Frontend-Test     |
-                                             |                   |  | - Run tests       |
-                                             +-------------------+  +-------------------+
-
-
-### Artillery & Playwright Testing Tools
-
-[*\<Artillery-Template>*](https://github.com/LMaiStud/sqs/blob/main/artillery-tests/artillery.yml)
-
-[*\<Playwright-End-to-End-Test>*](https://github.com/LMaiStud/sqs/blob/main/playwright/tests/landingPage.spec.js)
-
-### SonarCloud Analyse
-
-[*\<SonarCloud-Link>*](https://sonarcloud.io/organizations/sqsprojekt/projects)
-
-### OpenAPI Dokumentation
-
-[*\<OpenAPI-Template>*](http://localhost:8080/swagger-ui)
 
 # Laufzeitsicht
 
@@ -478,8 +423,66 @@ Zuordnung von Bausteinen zu Infrastruktur
 
 # Querschnittliche Konzepte
 
+
 ## UML Diagramm des Backends:
 ![UML](https://github.com/LMaiStud/sqs/blob/main/doc/images/uml_digram.drawio%20(1).png)
+
+## MySQL Datenbank
+
+![image](https://github.com/LMaiStud/sqs/assets/163861902/47fa68ad-f9d9-49be-a75f-61038ac99d1f)
+
+## Docker Compose
+
+[*\<Container-Compose>*](https://github.com/LMaiStud/sqs/blob/main/docker-compose.yml)
+
+    +-----------------+           +-----------------+           +-----------------------------+  
+    |                 |           |                 |           |                             |  
+    |       db        |---------->|    backend      |---------->|    frontend                 |  
+    |  MySQL:latest   |           |  sqs_backend    |           |  sqs_frontend               |  
+    |  Port: 3306     |           |  Ports: 8080,   |           |  Port: 80                   |  
+    |  Volumes:       |           |         5005    |           |  Build context: ./frontend  |  
+    |  mysql_data     |           |  Depends on: db |           |  Dockerfile: Dockerfile     |  
+    |                 |           |                 |           |  Depends on: backend        |  
+    |                 |           |                 |           |                             |  
+    +-----------------+           +-----------------+           +-----------------------------+  
+
+## GitHub Actions
+
+[*\<GitHub-Actions-file>*](https://github.com/LMaiStud/sqs/blob/main/.github/workflows/maven.yml)
+
+
+    +------------------------------+             +-----------------------------------+
+    |                              |             |                                   |
+    |       lint-dockerfiles       |------------>| Build-Frontend-and-Backend-and-   |
+    |   - Lint Backend Dockerfile  |             | push-imges                        |
+    |   - Lint Frontend Dockerfile |             |   - Build backend with Maven      |
+    |                              |             |   - Build frontend with npm       |
+    |                              |             |   - Push Docker images            |
+    +------------------------------+             +-----------------------------------+
+                                                        |              |
+                                                        V              V
+                                             +-------------------+  +-------------------+
+                                             |                   |  |                   |
+                                             |   Artillery-Test  |  | End-To-End-Test-  |
+                                             |   - Run tests     |  | Frontend-Test     |
+                                             |                   |  | - Run tests       |
+                                             +-------------------+  +-------------------+
+
+
+## Artillery & Playwright Testing Tools
+
+[*\<Artillery-Template>*](https://github.com/LMaiStud/sqs/blob/main/artillery-tests/artillery.yml)
+
+[*\<Playwright-End-to-End-Test>*](https://github.com/LMaiStud/sqs/blob/main/playwright/tests/landingPage.spec.js)
+
+## SonarCloud Analyse
+
+[*\<SonarCloud-Link>*](https://sonarcloud.io/organizations/sqsprojekt/projects)
+
+## OpenAPI Dokumentation
+
+[*\<OpenAPI-Template>*](http://localhost:8080/swagger-ui)
+
 
 # Architekturentscheidungen
 
