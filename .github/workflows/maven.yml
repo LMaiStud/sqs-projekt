@@ -171,7 +171,4 @@ jobs:
           cd playwright
           npx playwright test --config playwright.config.js
 
-      - name: Show Test Results
-        run: echo "${{ steps.playwright.outputs.results }}" > test-results.json
-
 
