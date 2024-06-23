@@ -28,6 +28,26 @@ Sobald Backend und Frontend gestartet sind, ist die Oberfläche unter `http://lo
 
 Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
 
+## SonarCloud
+[SonarCloud-Analyse](https://sonarcloud.io/organizations/sqsprojekt/projects)
+
+### Backend-Analyse
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_backend&metric=alert_status)](https://sonarcloud.io/dashboard?id=sqsprojekt_backend)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_backend&metric=bugs)](https://sonarcloud.io/project/issues?id=sqsprojekt_backend&resolved=false&types=BUG)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_backend&metric=vulnerabilities)](https://sonarcloud.io/project/issues?id=sqsprojekt_backend&resolved=false&types=VULNERABILITY)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_backend&metric=code_smells)](https://sonarcloud.io/project/issues?id=sqsprojekt_backend&resolved=false&types=CODE_SMELL)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_backend&metric=coverage)](https://sonarcloud.io/component_measures?id=sqsprojekt_backend&metric=coverage&view=list)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_backend&metric=duplicated_lines_density)](https://sonarcloud.io/project/issues?id=sqsprojekt_backend&resolved=false&types=DUPLICATED_LINES)
+
+### Frontend-Analyse
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=sqsprojekt_frontend)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_frontend&metric=bugs)](https://sonarcloud.io/project/issues?id=sqsprojekt_frontend&resolved=false&types=BUG)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_frontend&metric=vulnerabilities)](https://sonarcloud.io/project/issues?id=sqsprojekt_frontend&resolved=false&types=VULNERABILITY)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_frontend&metric=code_smells)](https://sonarcloud.io/project/issues?id=sqsprojekt_frontend&resolved=false&types=CODE_SMELL)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_frontend&metric=coverage)](https://sonarcloud.io/component_measures?id=sqsprojekt_frontend&metric=coverage&view=list)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=sqsprojekt_frontend&metric=duplicated_lines_density)](https://sonarcloud.io/project/issues?id=sqsprojekt_frontend&resolved=false&types=DUPLICATED_LINES)
+
+
 # Inhaltsverzeichnis
 1. [Einführung und Ziele](#einführung-und-ziele)
     1. [Aufgabenstellung](#aufgabenstellung)
