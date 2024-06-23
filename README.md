@@ -255,8 +255,8 @@ Wichtige Schnittstellen
 - OpenAPI-Schnittstelle für die API-Dokumentation
 
 ### Spring Boot Backend
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/e9bcd52e-1629-4af9-8014-c671237e2a63)
 
-![whitebox1 drawio (1)](https://github.com/LMaiStud/sqs-projekt/assets/163861902/80d04907-9b25-40bf-8c38-1e096890b040)
 
 **Zweck/Verantwortung**
 Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Datenzugriff der Anwendung. Es stellt die RESTful API-Schnittstellen bereit, über die das Frontend auf die Daten zugreifen kann.
