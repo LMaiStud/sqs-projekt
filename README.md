@@ -482,6 +482,21 @@ der online-Dokumentation (auf Englisch!).
 
 ## Qualitätsszenarien
 
+| Attribut                           | Szenario                                                                                   | Maßnahme                                                                                             |
+|------------------------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Portability - Übertragbarkeit      | Nutzungsszenario: Die Software läuft auf getrennten Docker-Containern.                      | Nutzung von Docker Compose                                                                           |
+|                                    | Änderungsszenario: Alle neuen Container werden automatisiert getestet.                      | Betriebssystem-unabhängige Laufzeitumgebung                                                          |
+|                                    | Nutzungsszenario: Das Frontend wird unabhängig vom Browser immer gleich dargestellt.        | Tests mit Playwright auf unterschiedlichen Browsern                                                  |
+|                                    | Änderungsszenario: Neue Version eines Browsers oder ein komplett neuer Browser.             | Regelmäßige Updates und Tests mit Playwright                                                         |
+| Usability - Benutzerfreundlichkeit | Nutzungsszenario: Für den Nutzer ist es leicht, Autobahnbaustellen abzurufen.               | Einfaches Frontend mit leicht zu verstehenden Buttons und Suchfunktion                               |
+|                                    | Änderungsszenario: Bei Verbesserungsvorschlägen werden diese notiert.                       | Aufgefallene Verbesserungsvorschläge einbauen und mit Playwright testen                              |
+|                                    | Nutzungsszenario: Das Frontend zeigt nur relevante Baustellen an.                           | Einfache und übersichtliche Ausgabe im Frontend                                                      |
+|                                    | Änderungsszenario: Bei Nutzerforderungen diese notieren.                                    | Aufgefallene Verbesserungsvorschläge einbauen und mit Playwright testen                              |
+| Reliability - Zuverlässigkeit      | Nutzungsszenario: Das System wird regelmäßig getestet.                                      | Lasttests (Artillery), JUnit-Tests, Integrationstests, End-to-End-Tests (Playwright)                 |
+|                                    | Änderungsszenario: Bei Änderungen im Code automatisierte Tests durchführen.                 | Umfassende Testabdeckung des gesamten Programms                                                      |
+|                                    | Nutzungsszenario: Das System hält auch großer Belastung stand.                              | Lasttests mit Artillery automatisiert durchführen                                                    |
+|                                    | Änderungsszenario: Bei neuen Anforderungen muss auch der Test geändert werden.              | Regelmäßige Anpassung der Tests                                                                      |
+
 # Risiken und technische Schulden
 
 ## Risiken
