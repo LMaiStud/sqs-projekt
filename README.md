@@ -340,7 +340,8 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ## Infrastruktur
 
-![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/c3d27923-939c-4c08-8f75-0a8a3b4ba604)
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/fa83177d-da67-49f3-9e1b-f3886172559f)
+
 
 **Begründung für die Architekturaufteilung**
 
