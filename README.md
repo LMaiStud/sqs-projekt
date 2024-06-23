@@ -11,7 +11,7 @@
 ### Anwendung klonen
 Das Repository von folgendem Link klonen:
 ```
-git clone https://github.com/LMaiStud/sqs.git
+git clone https://github.com/LMaiStud/sqs-projekt.git
 cd sqs
 ```
 
