@@ -250,8 +250,14 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ### React Frontend
 
-*\<Frontend-Template>*
+![whitebox2 drawio](https://github.com/LMaiStud/sqs-projekt/assets/163861902/ff7516e5-1687-42cb-a954-f937e5dab178)
 
+- **main**
+  - Die `main` Komponente ist der Einstiegspunkt des Frontend-Teils der Anwendung. 
+- **App**
+  - Die `App` Komponente ist der zentrale Teil der Benutzeroberfläche, der verschiedene Teile der Anwendung organisiert und verwaltet.
+- **LandingPage**
+  - Die `LandingPage` ist eine spezifische Seite oder Ansicht innerhalb der `App`. Sie dient als Startseite für Benutzer, die die Anwendung besuchen.
 
 # Laufzeitsicht
 
