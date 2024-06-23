@@ -6,8 +6,8 @@ test('istSeiteOnlineCheckundWirdRichtigAufgebaut', async ({ page }) => {
     await page.getByRole('banner').locator('div').click();
     await page.getByLabel('Suche').click();
     await page.getByRole('button', { name: 'Suche' }).click();
-    await page.locator('div').filter({ hasText: /^SucheSucheSuche Bitte Baustelle Suchen!$/ }).nth(1).click();
-    await page.getByRole('heading', { name: 'Bitte Baustelle Suchen!' }).click();
+    await page.locator('div').filter({ hasText: /^SucheSucheSuche Bitte Baustelle suchen!$/ }).nth(1).click();
+    await page.getByRole('heading', { name: 'Bitte Baustelle suchen!' }).click();
     await page.locator('html').click();
   });
 
@@ -15,7 +15,7 @@ test('leereSuche', async ({ page }) => {
     await page.goto('http://localhost/');
     await page.getByLabel('Suche').click();
     await page.getByRole('button', { name: 'Suche' }).click();
-    await page.getByRole('heading', { name: 'Bitte Baustelle Suchen!' }).click();
+    await page.getByRole('heading', { name: 'Bitte Baustelle suchen!' }).click();
 });
 
 
@@ -55,7 +55,7 @@ test('falscheSuche', async ({ page }) => {
     await page.getByLabel('Suche').click();
     await page.getByLabel('Suche').fill('');
     await page.getByRole('button', { name: 'Suche' }).click();
-    await page.getByRole('heading', { name: 'Bitte Baustelle Suchen!' }).click();
+    await page.getByRole('heading', { name: 'Bitte Baustelle suchen!' }).click();
   });
 
 
@@ -88,7 +88,7 @@ test('End-to-End-Test', async ({ page }) => {
   await page.getByLabel('Suche').click();
   await page.getByLabel('Suche').fill('');
   await page.getByRole('button', { name: 'Suche' }).click();
-  await page.getByRole('heading', { name: 'Bitte Baustelle Suchen!' }).click();
+  await page.getByRole('heading', { name: 'Bitte Baustelle suchen!' }).click();
   await page.getByLabel('Suche').click();
   await page.getByLabel('Suche').fill('laksjdflasfjdk');
   await page.getByRole('button', { name: 'Suche' }).click();
@@ -96,10 +96,10 @@ test('End-to-End-Test', async ({ page }) => {
   await page.getByLabel('Suche').click();
   await page.getByLabel('Suche').fill('');
   await page.getByRole('button', { name: 'Suche' }).click();
-  await page.getByRole('heading', { name: 'Bitte Baustelle Suchen!' }).click();
+  await page.getByRole('heading', { name: 'Bitte Baustelle suchen!' }).click();
   await page.getByRole('link', { name: 'Beste Autobaustellenauskunft' }).click();
   await page.getByRole('banner').locator('div').click();
-  await page.locator('div').filter({ hasText: /^SucheSucheSuche Bitte Baustelle Suchen!$/ }).nth(1).click();
+  await page.locator('div').filter({ hasText: /^SucheSucheSuche Bitte Baustelle suchen!$/ }).nth(1).click();
 });
 
 
