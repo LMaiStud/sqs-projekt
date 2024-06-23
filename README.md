@@ -152,7 +152,9 @@ Das Projekt muss öffentlich in einem GitHub-Repository bereitgestellt werden. A
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
-![Fachlicher Kontext](https://github.com/LMaiStud/sqs/blob/main/doc/images/Fachlicher%20Kontext.png)
+
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/a497582c-4647-44a5-be4e-38b0c54ad9c4)
+
 
 Der Benutzer ruft über die Autobahnauskunft die Baustelleninformationen ab. Falls die Baustelle bereits in der Datenbank vorhanden ist, wird sie von dort ausgegeben. Ist sie nicht vorhanden, wird sie von der externen API abgerufen.
 
