@@ -26,7 +26,7 @@ Sobald Backend und Frontend gestartet sind, ist die Oberfläche unter `http://lo
 
 ---
 
-Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http://localhost:8080/api/v1/q/swagger-ui
+Die Backend API-Dokumentation kann über folgenden Link aufgerufen werden: http://localhost:8080/swagger-ui/index.html
 
 ## SonarCloud
 [SonarCloud-Analyse](https://sonarcloud.io/organizations/sqsprojekt/projects)
@@ -176,7 +176,7 @@ Responses:
 
 Diese Schnittstelle bietet eine einfache Möglichkeit, die aktuellen Baustellen für eine spezifische Autobahn abzurufen und die Informationen darüber zu erhalten, was die Baustellen einschränken und wie lange sie voraussichtlich dauern werden.
 
-Die API wird mittels Swagger UI dokumentiert: http://localhost:8080/swagger-ui
+Die API wird mittels Swagger UI dokumentiert: http://localhost:8080/swagger-ui/index.html
 
 ## Technischer Kontext
 
