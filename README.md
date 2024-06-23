@@ -277,25 +277,7 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ### Laufzeitdiagramm
 
-
-    Benutzer            Frontend             Backend            Cache             API des Bundes          Datenbank
-       |                   |                    |                  |                     |                                    |
-       |---Autobahnkennung eingeben------------>|                  |                     |                                    |
-       |                   |---HTTP GET /A99/services/roadworks--->|                     |                                    |
-       |                   |                    |---Überprüfung des Caches-------------->|                                    |
-       |                   |                    |                  |<---Cache-Hit---     |                                    |
-       |                   |                    |                  |       oder          |                                    |
-       |                   |                    |                  |---Cache-Miss----    |                                    |
-       |                   |                    |---HTTP GET /A99/services/roadworks---->|                                    |             
-       |                   |                    |                  |                     |---Baustelleninformationen (JSON)-->|
-       |                   |                    |                  |<-----------------Baustelleninformationen-----------------|
-       |                   |                    |<---Speichern der Daten im Cache------->|                                    |
-       |                   |                    |<---Speichern der Daten in MySQL------->|                                    |
-       |                   |                    |<---Baustelleninformationen-------------|                                    |
-       |                   |<---Anzeige der Baustelleninformationen----------------------|                                    |
-       |                   |                    |                  |                     |                                    | 
-
-
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/849aa2bb-fd67-4809-a5e5-c41f30df3fe9)
 
 
 ### Szenario 2: Fehlgeschlagener Abruf von Baustelleninformationen (falsche Autobahnkennung)
@@ -314,18 +296,23 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 #### Laufzeitdiagramm
 
-    Benutzer            Frontend             Backend            Cache             API des Bundes
-       |                   |                    |                  |                     |
-       |---Autobahnkennung eingeben------------>|                  |                     |
-       |                   |---HTTP GET /A999/services/roadworks-->|                     |
-       |                   |                    |---Überprüfung des Caches-------------->|
-       |                   |                    |                  |<---Cache-Miss-------|
-       |                   |                    |---HTTP GET /A999/services/roadworks--->|
-       |                   |                    |                  |                     |
-       |                   |                    |<-----------------Fehlerantwort---------|
-       |                   |<---Fehlerantwort----------------------|                     |
-       |<---Anzeige der Fehlermeldung------------------------------|                     |
-       |                   |                    |                  |                     |
+
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/86911e0c-d01b-47fe-9723-cd609960ede3)
+
+### Szenario 3: Erfolgreicher Abruf von Baustelleninformationen
+
+#### Ablaufbeschreibung
+
+1. **Benutzeranfrage im Frontend**: Ein Benutzer navigiert auf der React-basierten Webanwendung und gibt eine falsche oder nicht existierende Autobahnkennung (z.B. "A99") ein, um die aktuellen Baustelleninformationen abzurufen.
+2. **Anfrage an das Backend**: Das Frontend sendet eine HTTP GET-Anfrage an das Spring Boot Backend. Der Endpunkt ist `/A99/services/roadworks`.
+3. **Überprüfung des Caches im Backend**: Das Backend prüft, ob die Baustelleninformationen für die angefragte Autobahn im Cache vorhanden sind.
+   - **Cache-Hit**: Da die Autobahnkennung im Cache liegt.
+6. **Antwort an das Frontend**: Das Backend sendet die Baustelleninformationen.
+7. **Anzeige der Baustelleninformationen**: Das Frontend zeigt die Baustelleninformationen.
+
+#### Laufzeitdiagramm
+
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/b1c402f3-a787-4eaa-9536-f6a5e120acec)
 
 
 # Verteilungssicht
