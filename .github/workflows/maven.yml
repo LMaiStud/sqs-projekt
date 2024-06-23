@@ -1,4 +1,4 @@
-name: Java CI with Maven and React
+name: Build and Test Full Stack Application
 
 permissions:
   contents: read
