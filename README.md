@@ -318,44 +318,28 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 # Verteilungssicht
 
-## Infrastruktur Ebene 1
+## Infrastruktur
 
-***\<Übersichtsdiagramm>***
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/c3d27923-939c-4c08-8f75-0a8a3b4ba604)
 
-Begründung  
-*\<Erläuternder Text>*
+**Begründung für die Architekturaufteilung**
 
-Qualitäts- und/oder Leistungsmerkmale  
-*\<Erläuternder Text>*
+Die Architektur unserer Anwendung folgt bewährten Prinzipien der Softwareentwicklung und bietet mehrere Vorteile durch die klare Trennung von Frontend, Backend, External API und Database in separaten Containern:
 
-Zuordnung von Bausteinen zu Infrastruktur  
-*\<Beschreibung der Zuordnung>*
+1. **Skalierbarkeit und Flexibilität**:
+   - Durch die Verwendung separater Container für das Frontend und das Backend können wir Ressourcen unabhängig voneinander skalieren. Dies ermöglicht eine bessere Anpassung an sich ändernde Lastanforderungen und optimiert die Ressourcennutzung.
 
-## Infrastruktur Ebene 2
+2. **Entkopplung und Wartbarkeit**:
+   - Die Platzierung der External API und der Database außerhalb des Backend Containers ermöglicht eine klare Trennung der Verantwortlichkeiten und reduziert die Abhängigkeiten zwischen den Komponenten. Updates oder Änderungen in der External API oder der Database können unabhängig vom Backend durchgeführt werden, was die Wartbarkeit der Anwendung verbessert.
 
-### *\<Infrastrukturelement 1>*
+3. **Sicherheit**:
+   - Die Isolierung von Komponenten in separaten Containern verbessert die Sicherheit der Anwendung. Durch die Verwendung geeigneter Netzwerkregeln und Firewalls können wir den Zugriff auf sensible Ressourcen wie die Database und die External API effektiv steuern und schützen.
 
-*\<Diagramm + Erläuterungen>*
+4. **Technologische Vielfalt und Integration**:
+   - Die externe Platzierung der External API und der Database ermöglicht es uns, verschiedene Technologien und Dienste für spezifische Anforderungen zu nutzen. Zum Beispiel können wir die Database in einer Cloud-Plattform hosten und die External API von einem externen Dienst bereitstellen, was Kosten spart und die Performance optimiert.
 
-### *\<Infrastrukturelement 2>*
-
-*\<Diagramm + Erläuterungen>*
-
-…
-
-### *\<Infrastrukturelement n>*
-
-*\<Diagramm + Erläuterungen>*
-
-# Querschnittliche Konzepte
-
-
-## UML Diagramm des Backends:
-![UML](https://github.com/LMaiStud/sqs/blob/main/doc/images/uml_digram.drawio%20(1).png)
-
-## MySQL Datenbank
-
-![image](https://github.com/LMaiStud/sqs/assets/163861902/47fa68ad-f9d9-49be-a75f-61038ac99d1f)
+5. **Unterstützung für Microservices-Architektur**:
+   - Die Aufteilung in separate Container fördert Prinzipien der Microservices-Architektur und Zustandslosigkeit. Jeder Container kann spezifische Funktionen oder Services bereitstellen, die über klare Schnittstellen wie REST miteinander kommunizieren. Dies erleichtert die Wartung, Skalierung und Erweiterbarkeit unserer Anwendung.
 
 ## Docker Compose
 
@@ -371,6 +355,19 @@ Zuordnung von Bausteinen zu Infrastruktur
     |                 |           |                 |           |  Depends on: backend        |  
     |                 |           |                 |           |                             |  
     +-----------------+           +-----------------+           +-----------------------------+  
+
+
+# Querschnittliche Konzepte
+
+
+## UML Diagramm des Backends:
+![UML](https://github.com/LMaiStud/sqs/blob/main/doc/images/uml_digram.drawio%20(1).png)
+
+## MySQL Datenbank
+
+![image](https://github.com/LMaiStud/sqs/assets/163861902/47fa68ad-f9d9-49be-a75f-61038ac99d1f)
+
+
 
 ## GitHub Actions
 
