@@ -37,7 +37,7 @@ function LandingPage() {
 
     function doSearch() {
         if (search.trim() === "") {
-            setSearchResult("Bitte Baustelle suchen!");
+            setSearchResult("Bitte Baustelle Suchen!");
             setRoadworksData([]);
             return;
         }

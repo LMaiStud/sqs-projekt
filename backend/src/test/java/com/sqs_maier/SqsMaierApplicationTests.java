@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SqsMaierApplicationTests {
 
     @Test
-    public void mainMethodRunsSuccessfully() throws InterruptedException {
+    void mainMethodRunsSuccessfully() {
 
         SqsMaierApplication.main(new String[] {});
 
