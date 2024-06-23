@@ -416,6 +416,9 @@ Die Architektur unserer Anwendung folgt bewährten Prinzipien der Softwareentwic
                                              +-------------------+  +-------------------+
 
 
+Die README.md ist von der GitHub Action ausgeschlossen.                                             
+
+
 ## Artillery & Playwright Testing Tools
 
 [*\<Artillery-Template>*](https://github.com/LMaiStud/sqs/blob/main/artillery-tests/artillery.yml)
