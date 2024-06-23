@@ -274,7 +274,8 @@ Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Date
 
 ### React Frontend
 
-![whitebox2 drawio](https://github.com/LMaiStud/sqs-projekt/assets/163861902/ff7516e5-1687-42cb-a954-f937e5dab178)
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/b2e31598-e961-4ff7-84df-05a311fbb4c6)
+
 
 - **main**
   - Die `main` Komponente ist der Einstiegspunkt des Frontend-Teils der Anwendung. 
