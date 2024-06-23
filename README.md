@@ -532,9 +532,9 @@ der online-Dokumentation (auf Englisch!).
 ## Technische Schulden
 
 1. **Unvollständige Tests**  
-   **Beschreibung:** Einige Teile der Anwendung sind möglicherweise nicht vollständig durch Tests abgedeckt, was das Risiko von unentdeckten Fehlern erhöht.  
+   **Beschreibung:** Einige Teile der Anwendung sind nicht vollständig durch Tests abgedeckt, was das Risiko von unentdeckten Fehlern erhöht.  
    **Maßnahmen:**
-   - **Testabdeckung erhöhen:** Erweiterung der Testabdeckung durch Hinzufügen von mehr Unit-Tests, Integrationstests und End-to-End-Tests.
+   - **Testabdeckung erhöhen:** Erweiterung der Testabdeckung durch Hinzufügen von mehr Unit-Tests vorallem im Frontend.
    - **Testautomatisierung:** Nutzung von CI/CD-Pipelines, um Tests bei jedem Commit automatisch auszuführen und sicherzustellen, dass keine neuen Fehler eingeführt werden.
 
 2. **Veraltete Technologien**  
@@ -548,6 +548,13 @@ der online-Dokumentation (auf Englisch!).
    **Maßnahmen:**
    - **Dokumentation erweitern:** Erstellung und Pflege einer umfassenden Dokumentation für alle Komponenten der Anwendung.
    - **Onboarding-Prozess:** Entwicklung eines strukturierten Onboarding-Prozesses für neue Entwickler, der eine schnelle Einarbeitung ermöglicht.
+
+4. **Passwörter im Klartext**  
+   **Beschreibung:** Nicht alle Passwörter, die für die DB gebraucht werden, sind verschlüsselt im Quellcode.  
+   **Maßnahmen:**
+   - **Einbau von .env Datei:** Erstellung und Nutzung einer .env Datei.
+   - **Tests:** Durchführung von Tests nach jeder Aktualisierung, um sicherzustellen, dass die Anwendung weiterhin einwandfrei funktioniert.
+
 
 
 # Glossar
