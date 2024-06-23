@@ -471,15 +471,6 @@ Deployment und Containerisierung:
 * SonarCloud: Zur Überprüfung der Codequalität wurde SonarCloud integriert. Alle von SonarCloud gemeldeten Probleme wurden behoben, um eine hohe Codequalität sicherzustellen.
 * OpenAPI: Am Ende wurde OpenAPI genutzt, um die API umfassend zu dokumentieren und zu beschreiben, was die Verständlichkeit und Benutzbarkeit der API erhöht.
 
-<div class="formalpara-title">
-
-**Weiterführende Informationen**
-
-</div>
-
-Siehe [Qualitätsanforderungen](https://docs.arc42.org/section-10/) in
-der online-Dokumentation (auf Englisch!).
-
 ## Qualitätsbaum
 
 ![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/5c3e2366-cabb-42c4-b6b4-ddec4bb3ce3f)
