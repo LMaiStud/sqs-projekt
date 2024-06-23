@@ -475,6 +475,8 @@ der online-Dokumentation (auf Englisch!).
 
 ## Qualitätsbaum
 
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/5c3e2366-cabb-42c4-b6b4-ddec4bb3ce3f)
+
 ## Qualitätsszenarien
 
 # Risiken und technische Schulden
