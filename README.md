@@ -152,7 +152,9 @@ Das Projekt muss öffentlich in einem GitHub-Repository bereitgestellt werden. A
 # Kontextabgrenzung
 
 ## Fachlicher Kontext
-![Fachlicher Kontext](https://github.com/LMaiStud/sqs/blob/main/doc/images/Fachlicher%20Kontext.png)
+
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/a497582c-4647-44a5-be4e-38b0c54ad9c4)
+
 
 Der Benutzer ruft über die Autobahnauskunft die Baustelleninformationen ab. Falls die Baustelle bereits in der Datenbank vorhanden ist, wird sie von dort ausgegeben. Ist sie nicht vorhanden, wird sie von der externen API abgerufen.
 
@@ -253,8 +255,8 @@ Wichtige Schnittstellen
 - OpenAPI-Schnittstelle für die API-Dokumentation
 
 ### Spring Boot Backend
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/e9bcd52e-1629-4af9-8014-c671237e2a63)
 
-![whitebox1 drawio (1)](https://github.com/LMaiStud/sqs-projekt/assets/163861902/80d04907-9b25-40bf-8c38-1e096890b040)
 
 **Zweck/Verantwortung**
 Das Spring Boot Backend ist verantwortlich für die Geschäftslogik und den Datenzugriff der Anwendung. Es stellt die RESTful API-Schnittstellen bereit, über die das Frontend auf die Daten zugreifen kann.
@@ -479,6 +481,21 @@ der online-Dokumentation (auf Englisch!).
 ![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/5c3e2366-cabb-42c4-b6b4-ddec4bb3ce3f)
 
 ## Qualitätsszenarien
+
+| Attribut                           | Szenario                                                                                   | Maßnahme                                                                                             |
+|------------------------------------|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Portability - Übertragbarkeit      | Nutzungsszenario: Die Software läuft auf getrennten Docker-Containern.                      | Nutzung von Docker Compose                                                                           |
+|                                    | Änderungsszenario: Alle neuen Container werden automatisiert getestet.                      | Betriebssystem-unabhängige Laufzeitumgebung                                                          |
+|                                    | Nutzungsszenario: Das Frontend wird unabhängig vom Browser immer gleich dargestellt.        | Tests mit Playwright auf unterschiedlichen Browsern                                                  |
+|                                    | Änderungsszenario: Neue Version eines Browsers oder ein komplett neuer Browser.             | Regelmäßige Updates und Tests mit Playwright                                                         |
+| Usability - Benutzerfreundlichkeit | Nutzungsszenario: Für den Nutzer ist es leicht, Autobahnbaustellen abzurufen.               | Einfaches Frontend mit leicht zu verstehenden Buttons und Suchfunktion                               |
+|                                    | Änderungsszenario: Bei Verbesserungsvorschlägen werden diese notiert.                       | Aufgefallene Verbesserungsvorschläge einbauen und mit Playwright testen                              |
+|                                    | Nutzungsszenario: Das Frontend zeigt nur relevante Baustellen an.                           | Einfache und übersichtliche Ausgabe im Frontend                                                      |
+|                                    | Änderungsszenario: Bei Nutzerforderungen diese notieren.                                    | Aufgefallene Verbesserungsvorschläge einbauen und mit Playwright testen                              |
+| Reliability - Zuverlässigkeit      | Nutzungsszenario: Das System wird regelmäßig getestet.                                      | Lasttests (Artillery), JUnit-Tests, Integrationstests, End-to-End-Tests (Playwright)                 |
+|                                    | Änderungsszenario: Bei Änderungen im Code automatisierte Tests durchführen.                 | Umfassende Testabdeckung des gesamten Programms                                                      |
+|                                    | Nutzungsszenario: Das System hält auch großer Belastung stand.                              | Lasttests mit Artillery automatisiert durchführen                                                    |
+|                                    | Änderungsszenario: Bei neuen Anforderungen muss auch der Test geändert werden.              | Regelmäßige Anpassung der Tests                                                                      |
 
 # Risiken und technische Schulden
 
