@@ -157,8 +157,9 @@ Die API wird mittels Swagger UI dokumentiert: http://localhost:8080/swagger-ui
 
 ## Technischer Kontext
 
-Architektur des Projektes:
-![ARK](https://github.com/LMaiStud/sqs/blob/main/doc/images/Architektur.drawio.png)
+### Architektur des Projektes:
+![image](https://github.com/LMaiStud/sqs-projekt/assets/163861902/0b9d23bf-2f4c-48b0-8f2e-cc98ceb6e31c)
+
 
 ## Technische Eigenschaften
 
